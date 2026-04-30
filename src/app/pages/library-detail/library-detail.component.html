@@ -1,0 +1,70 @@
+<ion-header class="ion-no-border">
+  <div class="header-gradient">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="selectedChapter ? goBack() : null" [hidden]="!selectedChapter">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+        <ion-back-button *ngIf="!selectedChapter" defaultHref="/tabs/library"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ selectedChapter ? selectedChapter.name : getBookTitle() }}</ion-title>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="bg-pattern"></div>
+
+  <div *ngIf="!selectedChapter && !isLoading" class="chapter-grid">
+    <div *ngFor="let ch of chapters" (click)="selectChapter(ch)" class="glass-card">
+      <div class="card-inner">
+        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+        <div class="text-box"><h3>{{ ch.name }}</h3><span>{{ ch.content?.length }} Madde</span></div>
+        <ion-icon name="chevron-forward-outline" class="arrow"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <div #zoomContainer
+       *ngIf="selectedChapter"
+       class="reader-container"
+       [style.--zoom]="zoomLevel">
+
+    <div *ngFor="let item of selectedChapter.content; let i = index"
+         class="item-card"
+         [class.ilmihal-mode]="bookId === 'ilmihal'">
+
+      <div class="item-meta">
+        <span class="index">#{{ i + 1 }}</span>
+        <div class="actions">
+          <ion-button fill="clear" (click)="copyItem(item)">
+            <ion-icon name="copy-outline"></ion-icon>
+            <ion-label>Kopyala</ion-label>
+          </ion-button>
+          <div class="sep"></div>
+          <ion-button fill="clear" (click)="shareItem(item)">
+            <ion-icon name="share-social-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+
+      <div class="text-wrapper">
+        <div *ngIf="getText(item, 'head')"
+             class="zoomable-text head-text"
+             [class.arabic-font]="bookId === 'kuran'"
+             [class.ilmihal-q]="bookId === 'ilmihal'"
+             [dir]="bookId === 'kuran' ? 'rtl' : 'ltr'"
+             [innerHTML]="bookId === 'kuran' ? colorizeArabic(getText(item, 'head')) : getSafeHtml(getText(item, 'head'))">
+        </div>
+
+        <div class="divider"><span></span></div>
+
+        <div class="zoomable-text body-text"
+             [innerHTML]="getSafeHtml(getText(item, 'body'))">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-spinner *ngIf="isLoading" name="crescent" class="loader"></ion-spinner>
+</ion-content>

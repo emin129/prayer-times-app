@@ -1,0 +1,270 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" class="settings-toolbar">
+    <ion-title>{{ 'SETTINGS_TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="settings-content ion-padding">
+  <div class="settings-container">
+
+    <div class="settings-section">
+      <div class="section-label">{{ 'GENERAL_SETTINGS' | translate }}</div>
+
+      <div class="settings-card clickable-item mb-10 premium-upgrade-card" *ngIf="!settingsService.isPremium" (click)="buyPremium()">
+        <div class="item-content-wrapper">
+          <div class="item-header">
+            <div class="icon-box pulse-bg"><ion-icon name="diamond-outline"></ion-icon></div>
+            <div class="text-group">
+              <div class="item-title premium-title">{{ 'REMOVE_ADS' | translate }}</div>
+              <div class="item-subtitle premium-subtitle">Premium'a geç, uygulamanın tadını çıkar.</div>
+            </div>
+          </div>
+          <ion-icon name="chevron-forward" class="chevron-icon premium-chevron"></ion-icon>
+        </div>
+      </div>
+
+      <div class="settings-card clickable-item" (click)="openLanguagePicker()">
+        <div class="item-content-wrapper">
+          <div class="item-header">
+            <div class="icon-box orange"><ion-icon name="language-outline"></ion-icon></div>
+            <div class="text-group">
+              <div class="item-title">{{ 'SELECT_LANGUAGE' | translate }}</div>
+              <div class="item-subtitle">{{ settingsService.currentLang | uppercase }}</div>
+            </div>
+          </div>
+          <ion-icon name="chevron-forward" class="chevron-icon"></ion-icon>
+        </div>
+      </div>
+
+      <div class="settings-card flex-row mt-10">
+        <div class="item-header">
+          <div class="icon-box green"><ion-icon name="location-outline"></ion-icon></div>
+          <div class="text-group">
+            <div class="item-title">{{ 'AUTO_LOCATION' | translate }}</div>
+            <div class="item-subtitle small-text">
+              {{ (settingsService.locationEnabled ? (settingsService.isLocationLoading ? 'SEARCHING_SATELLITE' : 'LOCATION_ACTIVE') : 'STATIC_LOCATION') | translate }}
+            </div>
+          </div>
+        </div>
+        <label class="custom-switch">
+          <input type="checkbox" [checked]="settingsService.locationEnabled" (change)="onLocationToggleNative($event)">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-card clickable-item mt-10"
+           [class.item-disabled]="settingsService.locationEnabled"
+           (click)="!settingsService.locationEnabled && openCityPicker()">
+        <div class="item-content-wrapper">
+          <div class="item-header">
+            <div class="icon-box blue"><ion-icon name="map-outline"></ion-icon></div>
+            <div class="text-group">
+              <div class="item-title">{{ 'SETTINGS.DEFAULT_CITY' | translate }}</div>
+              <div class="item-subtitle">
+                {{ settingsService.selectedCityName || ('SETTINGS.SELECT_CITY' | translate) }}
+              </div>
+            </div>
+          </div>
+          <ion-icon [name]="settingsService.locationEnabled ? 'lock-closed-outline' : 'chevron-forward'"
+                    [class.locked-icon]="settingsService.locationEnabled"
+                    class="chevron-icon">
+          </ion-icon>
+        </div>
+      </div>
+
+      <div class="settings-card flex-row mt-10">
+        <div class="item-header">
+          <div class="icon-box purple"><ion-icon name="moon-outline"></ion-icon></div>
+          <div class="item-title">{{ 'DARK_MODE' | translate }}</div>
+        </div>
+        <label class="custom-switch">
+          <input type="checkbox" [checked]="settingsService.isDarkMode" (change)="toggleDarkTheme($event)">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="section-label">Vakit Bildirimleri</div>
+      <div class="settings-card no-padding">
+        <div *ngFor="let p of prayers; let last = last" class="settings-row" [class.no-border]="last">
+          <div class="row-left">
+            <div class="item-title">{{ 'PRAYERS.' + getJsonKey(p) | translate }}</div>
+          </div>
+          <div class="row-right">
+            <label class="custom-switch">
+              <input type="checkbox" [checked]="settingsService.prayerSettings[p]?.notify"
+                     (change)="updatePrayer(p, 'notify', $event.target.checked)">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="section-label">Ezan Sesi Seçimi</div>
+      <div class="settings-card no-padding">
+        <div *ngFor="let p of prayers; let last = last" class="settings-row" [class.no-border]="last">
+
+          <div class="row-left">
+            <div class="row-text">
+              <div class="ezan-vakit-title"
+                   [style.color]="settingsService.isDarkMode ? '#ffffff' : '#000000'"
+                   style="font-weight: 700; font-size: 1.05rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                {{ 'PRAYERS.' + getJsonKey(p) | translate }}
+              </div>
+              <div class="ezan-vakit-subtitle"
+                   [style.color]="settingsService.isDarkMode ? '#a4b0be' : '#636e72'"
+                   style="font-weight: 500; font-size: 0.85rem; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                {{ settingsService.prayerSettings[p]?.sound ? getActiveEzanName(p) : ('SILENT' | translate) }}
+              </div>
+            </div>
+          </div>
+
+          <div class="row-right flex-center">
+
+            <div class="btn-action-container" (click)="updatePrayer(p, 'sound', !settingsService.prayerSettings[p]?.sound)">
+              <div class="btn-action" [class.active-red]="!settingsService.prayerSettings[p]?.sound">
+                <ion-icon [name]="settingsService.prayerSettings[p]?.sound ? 'volume-mute-outline' : 'volume-high'"></ion-icon>
+              </div>
+              <span class="btn-label">{{ settingsService.prayerSettings[p]?.sound ? ('MUTE' | translate) : ('UNMUTE' | translate) }}</span>
+            </div>
+
+            <div class="btn-action-container" (click)="openEzanModal(p)">
+              <div class="btn-action active-blue">
+                <ion-icon name="musical-notes-outline"></ion-icon>
+              </div>
+              <span class="btn-label">{{ 'MAKAM' | translate }}</span>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="section-label" style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #636e72; margin-left: 10px; margin-bottom: 8px;">Vakit Öncesi Hatırlatma</div>
+      <div class="settings-card no-padding" style="background: #ffffff; border-radius: 16px; padding: 0;">
+
+        <div *ngFor="let p of prayers; let last = last"
+             class="settings-row"
+             [style.border-bottom]="last ? 'none' : '1px solid #f1f2f6'"
+             style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; min-height: 65px;">
+
+          <div class="row-left"
+               [class.item-disabled]="!settingsService.prayerSettings[p]?.notify"
+               style="flex: 1; min-width: 0;">
+            <div class="item-title"
+                 [style.color]="settingsService.prayerSettings[p]?.notify ? '#000000' : '#a4b0be'"
+                 style="font-size: 1.05rem; font-weight: 700 !important;">
+              {{ 'PRAYERS.' + getJsonKey(p) | translate }}
+            </div>
+          </div>
+
+          <div class="row-right" style="flex-shrink: 0;">
+            <ion-select interface="popover" mode="ios"
+                        [disabled]="!settingsService.prayerSettings[p]?.notify"
+                        [value]="settingsService.prayerSettings[p]?.preNotifyMinutes"
+                        (ionChange)="updatePrayer(p, 'preNotifyMinutes', $event.detail.value)"
+                        style="--placeholder-color: #2f3542; --placeholder-opacity: 1; font-weight: 600; font-size: 0.9rem; background: #f1f2f6; border-radius: 10px; padding: 6px 12px; min-width: 100px; color: #2f3542;">
+
+              <ion-select-option [value]="0">{{ 'OFF' | translate }}</ion-select-option>
+              <ion-select-option [value]="5">5 {{ 'MINUTES' | translate }}</ion-select-option>
+              <ion-select-option [value]="15">15 {{ 'MINUTES' | translate }}</ion-select-option>
+              <ion-select-option [value]="30">30 {{ 'MINUTES' | translate }}</ion-select-option>
+
+            </ion-select>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="section-label">{{ 'ABOUT_SECTION' | translate }}</div>
+      <div class="settings-card clickable-item" (click)="isAboutModalOpen = true">
+        <div class="item-content-wrapper">
+          <div class="item-header">
+            <div class="icon-box blue"><ion-icon name="information-circle-outline"></ion-icon></div>
+            <div class="text-group">
+              <div class="item-title">{{ 'ABOUT_APP' | translate }}</div>
+              <div class="item-subtitle">v1.0.5 • {{ 'DEVELOPER_NAME' | translate }}</div>
+            </div>
+          </div>
+          <ion-icon name="chevron-forward" class="chevron-icon"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ion-modal [isOpen]="isEzanModalOpen" (didDismiss)="isEzanModalOpen = false; settingsService.stopPreview()" mode="ios"
+             [initialBreakpoint]="0.5" [breakpoints]="[0, 0.5, 0.8]">
+    <ng-template>
+      <ion-header class="ion-no-border">
+        <ion-toolbar> <ion-title>{{ 'SOUND_CONTROL' | translate }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="isEzanModalOpen = false">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list lines="none">
+          <ion-item *ngFor="let sound of settingsService.ezanSoundsList" class="ezan-option-item">
+            <div (click)="selectEzan(sound.id)" class="ezan-select-trigger" style="display: flex; align-items: center; flex: 1; cursor: pointer;">
+              <ion-icon [name]="settingsService.prayerSettings[selectedPrayerForSound]?.ezanSound === sound.id ? 'checkmark-circle' : 'ellipse-outline'"
+                        [color]="settingsService.prayerSettings[selectedPrayerForSound]?.ezanSound === sound.id ? 'primary' : 'medium'"></ion-icon>
+              <ion-label class="ezan-label" style="margin-left: 12px;">
+                <h2 style="color: var(--text-primary) !important; font-weight: 600;">{{ 'SOUNDS.' + sound.id.toUpperCase() | translate }}</h2>
+                <p style="color: var(--text-secondary) !important;">{{ 'SOUNDS.' + sound.id.toUpperCase() + '_DESC' | translate }}</p>
+              </ion-label>
+            </div>
+
+            <ion-button fill="clear" slot="end" (click)="playEzanPreview(sound.id, $event)">
+              <ion-icon slot="icon-only" name="play-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="isAboutModalOpen" (didDismiss)="isAboutModalOpen = false" mode="ios">
+    <ng-template>
+      <ion-header class="ion-no-border">
+        <ion-toolbar>
+          <ion-title>{{ 'ABOUT_APP' | translate }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="isAboutModalOpen = false">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding about-modal-content">
+        <div class="about-hero">
+          <div class="logo-wrapper"><img src="assets/icon/ikon.jpeg" alt="Ezan Vakti"></div>
+          <h2>Ezan Vakti</h2>
+          <p class="version-text">Version 1.0.5</p>
+        </div>
+        <div class="info-card">
+          <h4 class="info-title">{{ 'APP_DESCRIPTION_TITLE' | translate }}</h4>
+          <p class="info-desc"><strong>{{ 'APP_DESCRIPTION_TEXT' | translate }}</strong></p>
+          <p class="info-desc mt-10">{{ 'APP_LONG_DESCRIPTION' | translate }}</p>
+        </div>
+        <div class="social-box">
+          <ion-button fill="clear" (click)="openSocial('https://github.com/mehmeteminejderha')"><ion-icon name="logo-github"></ion-icon></ion-button>
+          <ion-button fill="clear" (click)="openSocial('https://linkedin.com/in/mehmeteminejderha')"><ion-icon name="logo-linkedin"></ion-icon></ion-button>
+        </div>
+        <div class="copyright-text">{{ 'COPYRIGHT' | translate }}</div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

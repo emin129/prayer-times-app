@@ -1,0 +1,348 @@
+/* --- 1. ARKA PLAN (DERİNLİK VE CANLI IŞIKLAR) --- */
+.ambient-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  /* Daha derin ve asil bir gece mavisi geçişi */
+  background: radial-gradient(circle at 20% 30%, #1e3a8a 0%, #0f172a 100%);
+  z-index: -1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 15%; right: -5%;
+    width: 350px; height: 350px;
+    background: #3b82f6; /* Safir Mavi Parlama */
+    filter: blur(140px);
+    opacity: 0.3;
+  }
+}
+
+/* --- 2. GENEL KART YAPISI (GLASSMORPHISM 2.0) --- */
+.glass-card {
+  background: rgba(15, 23, 42, 0.75); /* Daha koyu fon = daha net yazı */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.2s ease, background 0.3s ease;
+
+  &:active {
+    transform: scale(0.97);
+    background: rgba(15, 23, 42, 0.9);
+  }
+
+  h2, h3 {
+    color: #f8fafc !important; /* Fildişi Beyazı */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  p, .desc, .esma-meaning, .holiday-desc {
+    color: #cbd5e1 !important; /* Okunabilirliği yüksek açık gri */
+    line-height: 1.5;
+  }
+}
+
+/* --- 3. ESMAÜL HÜSNA (YAN YANA MODERN GRID) --- */
+.esma-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Tam yan yana 2 sütun */
+  gap: 16px;
+  padding: 10px 0 40px;
+
+  .esma-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 12px;
+    min-height: 220px; /* Kart boylarını eşitlemek için ideal */
+    justify-content: flex-start;
+
+    .esma-id {
+      background: rgba(59, 130, 246, 0.15);
+      color: #3b82f6;
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .arabic-text {
+      font-size: 2.6rem; /* Arapça daha görkemli */
+      color: #fbbf24; /* Parlak Altın */
+      margin: 10px 0;
+      line-height: 1.1;
+      text-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+    }
+
+    .esma-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .esma-meaning {
+      font-size: 0.8rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* Anlam çok uzunsa tasarımı bozmasın diye keser */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      opacity: 0.8;
+    }
+  }
+}
+
+/* --- 4. DİNİ GÜNLER (CANLI TIMELINE AKIŞI) --- */
+.timeline-list {
+  padding-top: 10px;
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .dot {
+        width: 14px; height: 14px; border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+        border: 2px solid rgba(255,255,255,0.3);
+      }
+      .line { flex: 1; width: 2px; background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent); margin: 5px 0; }
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding: 20px;
+      margin-bottom: 24px;
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+
+        .date { color: #fbbf24; font-size: 0.9rem; font-weight: 700; }
+        .status-badge {
+          background: #ef4444;
+          color: white;
+          padding: 4px 10px;
+          border-radius: 8px;
+          font-size: 10px;
+          font-weight: 900;
+          box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+          animation: pulse 2s infinite;
+        }
+      }
+
+      .holiday-name { font-size: 1.2rem; font-weight: 700; margin: 0 0 8px; }
+      .holiday-desc { font-size: 0.9rem; margin: 0; opacity: 0.7; }
+    }
+
+    /* --- EN YAKIN GÜNÜN KIRMIZI VURGUSU --- */
+    &.is-active {
+      .dot {
+        background: #ef4444; border-color: #f87171;
+        box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+      }
+      .timeline-content {
+        background: rgba(185, 28, 28, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.4);
+
+        .date { color: #f87171 !important; }
+      }
+    }
+  }
+}
+
+/* Yaklaşan gün için ufak bir parlama animasyonu */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.arabic-row {
+  font-family: 'Amiri', serif;
+  font-size: 1.7rem;
+  color: #fbbf24;
+  text-align: center;
+  margin: 8px 0;
+}
+.latin-row {
+  font-size: 1rem;
+  color: #94a3b8;
+  text-align: center;
+  margin: 4px 0;
+}
+.card-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 15px 0;
+}
+/* --- Önceki tüm kodların (ambient-bg, glass-card, esma-grid, timeline-list vb.) burada duruyor --- */
+
+/* --- 6. 3 AYLIK İMSAKİYE LİSTE TASARIMI --- */
+.imsakiye-scroll-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 0 40px;
+
+  .day-row {
+    padding: 16px;
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+      .tarih-text {
+        color: #f8fafc;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+
+      .hicri-text {
+        color: #fbbf24;
+        font-size: 0.8rem;
+        font-weight: 600;
+        opacity: 0.9;
+      }
+    }
+
+    .vakit-grid-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); // 3x2 düzeni mobilde çok daha temiz durur
+      gap: 10px;
+
+      .vakit-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 8px;
+        border-radius: 12px;
+        transition: background 0.3s ease;
+
+        .v-label {
+          font-size: 0.65rem;
+          color: #94a3b8;
+          text-transform: uppercase;
+          margin-bottom: 4px;
+        }
+
+        .v-time {
+          font-size: 1rem;
+          font-weight: 700;
+          color: #fff;
+        }
+
+        &.is-iftar {
+          background: rgba(251, 191, 36, 0.08);
+          border: 1px solid rgba(251, 191, 36, 0.2);
+
+          .v-label, .v-time { color: #fbbf24; }
+        }
+      }
+    }
+  }
+}
+
+/* --- 7. TAKVİM DÖNÜŞTÜRÜCÜ (CONVERTER) STİLLERİ --- */
+.converter-container {
+  padding: 10px 0 40px;
+
+  .converter-card {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .section-label {
+      color: #94a3b8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .date-picker-wrapper {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 20px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      .custom-datetime {
+        --background: transparent;
+        --color: #fff;
+        border-radius: 16px;
+      }
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+      }
+
+      ion-icon {
+        font-size: 1.5rem;
+        color: #3b82f6;
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
+      }
+    }
+
+    .hicri-box {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      padding: 25px 15px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+      ion-icon {
+        font-size: 2rem;
+        color: #fbbf24;
+      }
+
+      .hicri-date {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #fbbf24 !important;
+        font-weight: 800;
+        text-align: center;
+      }
+    }
+  }
+
+  .info-box {
+    margin-top: 20px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(59, 130, 246, 0.05);
+
+    ion-icon { color: #3b82f6; font-size: 1.4rem; }
+    p { font-size: 0.8rem; margin: 0; opacity: 0.8; }
+  }
+}

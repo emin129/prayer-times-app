@@ -1,0 +1,82 @@
+:host {
+  --primary-deep: #1b5e20;
+
+  .reader-container {
+    padding-bottom: 100px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .item-card {
+    background: white;
+    margin: 15px;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+
+    // Üst kısım hep sabit kalmalı ki arayüz bozulmasın
+    .item-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #fafafa;
+
+      .index { font-weight: 700; color: #cbd5e0; font-size: 0.85rem; }
+      .actions {
+        display: flex; align-items: center; background: #f7fafc; border-radius: 10px; padding: 0 8px;
+        ion-button {
+          --color: #4a5568; height: 32px; font-size: 0.8rem;
+          ion-icon { font-size: 1.1rem; }
+        }
+        .sep { width: 1px; height: 12px; background: #e2e8f0; margin: 0 4px; }
+      }
+    }
+
+    // ZOOM SADECE BURADA ÇALIŞIR
+    .zoomable-text {
+      transition: font-size 0.1s ease-out;
+      word-wrap: break-word;
+      color: #2d3748;
+    }
+
+    .head-text {
+      font-weight: 800;
+      color: var(--primary-deep);
+      margin-bottom: 8px;
+      // Temel font 1.2rem, zoom ile artar
+      font-size: calc(1.2rem * var(--zoom));
+
+      &.arabic-font {
+        font-size: calc(2.1rem * var(--zoom)) !important;
+        line-height: 1.5;
+        color: #1a202c;
+      }
+
+      &.ilmihal-q {
+        color: #9b2c2c;
+        background: #fffaf0;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: calc(1.1rem * var(--zoom)) !important;
+      }
+    }
+
+    .body-text {
+      line-height: 1.6;
+      font-size: calc(1.05rem * var(--zoom));
+      text-align: justify;
+    }
+
+    .divider {
+      margin: 12px 0; display: flex; justify-content: center;
+      span { width: 30px; height: 2px; background: var(--primary-deep); opacity: 0.1; }
+    }
+  }
+
+  
+  .header-gradient { background: var(--primary-deep); ion-toolbar { --background: transparent; --color: white; } }
+  .chapter-grid { padding: 12px; .glass-card { background: white; margin-bottom: 10px; border-radius: 12px; .card-inner { display: flex; align-items: center; padding: 15px; .icon-box { background: #f0fff4; color: var(--primary-deep); padding: 10px; border-radius: 10px; margin-right: 12px; } .text-box { flex: 1; h3 { margin: 0; font-size: 0.95rem; font-weight: 700; } span { font-size: 0.75rem; color: #a0aec0; } } } } }
+}

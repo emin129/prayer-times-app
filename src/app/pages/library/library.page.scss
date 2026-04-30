@@ -1,0 +1,112 @@
+.library-museum-wrapper {
+  --background: #030405; // Saray kütüphanesi karanlığı
+
+  .ambient-spotlight {
+    position: fixed; top: -10%; left: 50%; width: 100%; height: 60%;
+    background: radial-gradient(circle at center, rgba(246, 211, 101, 0.08) 0%, transparent 70%);
+    transform: translateX(-50%); z-index: 0; pointer-events: none;
+  }
+}
+
+.museum-container {
+  padding: 40px 20px; position: relative; z-index: 1;
+}
+
+.museum-header {
+  text-align: center; margin-bottom: 50px;
+  .collection-label { color: #ff4757; font-size: 0.7rem; letter-spacing: 5px; font-weight: 800; }
+  .collection-title { color: #f6d365; font-size: 2.2rem; font-weight: 900; margin-top: 10px; text-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+}
+
+// 3D Engine
+.book-exhibition {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px 25px; padding-bottom: 100px;
+}
+
+.book-card-3d {
+  perspective: 1200px; position: relative;
+
+  .book-physical-engine {
+    height: 220px; position: relative; transform-style: preserve-3d;
+    transform: rotateY(-20deg) rotateX(5deg); // Doğal duruş açısı
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+    // KİTAP TEMALARI (Daha Ağır Tonlar)
+    &.kuran { --c-primary: #062e22; --c-gold: #fcd34d; }
+    &.hadis { --c-primary: #0f1c2e; --c-gold: #4facfe; }
+    &.cevşen { --c-primary: #25133d; --c-gold: #ff4757; }
+    &.tabirler { --c-primary: #2b1616; --c-gold: #d4af37; }
+    &.ilmihal { --c-primary: #2b1616; --c-gold: #574a1e; }
+
+    // Kitap Kapağı
+    .book-cover-main {
+      position: absolute; width: 100%; height: 100%;
+      background: var(--c-primary); border-radius: 4px 12px 12px 4px;
+      z-index: 5; overflow: hidden;
+      box-shadow: inset -2px 0 10px rgba(0,0,0,0.8);
+
+      .leather-texture {
+        position: absolute; inset: 0; opacity: 0.25;
+        background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      }
+
+      .gold-ornament-border {
+        position: absolute; inset: 10px; border: 1px solid var(--c-gold);
+        opacity: 0.2; border-radius: 8px;
+      }
+
+      .cover-inner-content {
+        position: relative; height: 100%; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; padding: 15px; text-align: center;
+
+        .emblem-circle {
+          width: 50px; height: 50px; border: 1px solid var(--c-gold);
+          border-radius: 50%; display: flex; align-items: center; justify-content: center;
+          font-size: 1.8rem; color: var(--c-gold); margin-bottom: 15px;
+          box-shadow: 0 0 15px rgba(var(--c-gold), 0.2);
+        }
+
+        .title-gold { color: #fff; font-size: 1.1rem; font-weight: 800; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .subtitle-faded { color: rgba(255,255,255,0.4); font-size: 0.65rem; margin-top: 5px; text-transform: uppercase; font-weight: 600; }
+      }
+
+      .gloss-shine {
+        position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+        transform: rotate(45deg);
+      }
+    }
+
+    // Kitap Sırtı (Gerçek 3D Kalınlık)
+    .book-spine {
+      position: absolute; left: 0; width: 35px; height: 100%;
+      background: var(--c-primary); filter: brightness(0.8);
+      transform: rotateY(-90deg); transform-origin: left;
+      display: flex; align-items: center; justify-content: center;
+
+      .spine-text {
+        color: rgba(255,255,255,0.2); transform: rotate(90deg);
+        font-size: 0.6rem; white-space: nowrap; text-transform: uppercase; letter-spacing: 2px;
+      }
+    }
+
+    // Sayfa Bloğu (Fildişi Rengi)
+    .book-pages-block {
+      position: absolute; right: -5px; width: 25px; height: 94%; top: 3%;
+      background: #e8e2d2; border-radius: 0 4px 4px 0;
+      transform: rotateY(90deg); transform-origin: left;
+      box-shadow: inset 5px 0 10px rgba(0,0,0,0.1);
+    }
+  }
+
+  // Tıklama Efekti (Kitap Öne Çıkıyor)
+  &:active .book-physical-engine {
+    transform: rotateY(-5deg) rotateX(0deg) scale(1.1) translateY(-10px);
+    z-index: 100;
+  }
+
+  .floor-shadow {
+    position: absolute; bottom: -15px; left: 10%; width: 80%; height: 20px;
+    background: #000; border-radius: 50%; filter: blur(15px); opacity: 0.6; z-index: -1;
+  }
+}

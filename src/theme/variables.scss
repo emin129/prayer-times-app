@@ -1,2 +1,66 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
+/* Ionic Temel CSS'leri */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * 1. AYDINLIK MOD (Varsayılan)
+ */
+:root {
+  --ion-background-color: #f2f2f7;
+  --ion-text-color: #000000;
+  --ion-item-background: #ffffff;
+  --ion-card-background: #ffffff;
+  --ion-toolbar-background: #ffffff;
+
+  /* Özel Değişkenler */
+  --app-bg: #f2f2f7;
+  --card-bg: #ffffff;
+  --text-color: #000000;
+}
+
+/**
+ * 2. KARANLIK MOD
+ * document.body.classList.add('dark-theme') yapınca burası çalışır.
+ */
+body.dark-theme {
+  --ion-background-color: #000000;
+  --ion-text-color: #ffffff;
+  --ion-item-background: #1c1c1e;
+  --ion-card-background: #1c1c1e;
+  --ion-toolbar-background: #1c1c1e;
+
+  /* Özel Değişkenler */
+  --app-bg: #000000;
+  --card-bg: #1c1c1e;
+  --text-color: #ffffff;
+
+  --ion-color-step-600: #8e8e93;
+}
+
+/**
+ * 3. GLOBAL BAĞLAMALAR
+ */
+ion-content {
+  --background: var(--ion-background-color) !important;
+  --color: var(--ion-text-color) !important;
+}
+
+ion-toolbar {
+  --background: var(--ion-toolbar-background) !important;
+  --color: var(--ion-text-color) !important;
+}
+
+/* Ayarlar ve Ana Sayfa Kartları İçin */
+.settings-card, .prayer-settings-card {
+  background: var(--ion-card-background) !important;
+}
+
+.item-title, .prayer-name, .section-label, .item-subtitle {
+  color: var(--ion-text-color) !important;
+}

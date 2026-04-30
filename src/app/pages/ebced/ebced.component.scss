@@ -1,0 +1,79 @@
+.ebced-header-card {
+  background: linear-gradient(135deg, #1a4d47 0%, #0d2b27 100%);
+  padding: 40px 20px 60px 20px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.result-circle {
+  width: 170px;
+  height: 170px;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  border-radius: 50%;
+  margin: 0 auto 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.5s ease;
+
+  &.has-value {
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+  }
+
+  .value-label { font-size: 0.6rem; letter-spacing: 2.5px; color: rgba(255,255,255,0.6); font-weight: 800; }
+  .total-number { font-size: 3.8rem; font-weight: 200; margin: 5px 0; color: #ffd700; text-shadow: 0 0 10px rgba(255,215,0,0.3); }
+}
+
+.custom-input-item {
+  --background: rgba(255, 255, 255, 0.08);
+  --color: white;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  border-radius: 20px;
+  margin: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  .main-input { font-size: 1.1rem; font-weight: 600; text-align: center; }
+}
+
+.helper-text { color: rgba(255, 255, 255, 0.4); font-size: 0.7rem; margin-top: 12px; font-weight: 500; }
+
+.analysis-section {
+  padding: 30px 20px;
+  animation: slideUp 0.4s ease-out;
+
+  .section-title { font-size: 0.75rem; font-weight: 900; color: #1a4d47; letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
+}
+
+.analysis-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px;
+
+  .char-pill {
+    background: white; border: 1px solid #e0e0e0; padding: 10px 18px; border-radius: 15px;
+    display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    .char { font-size: 1.1rem; font-weight: 800; color: #1a4d47; }
+    .val { font-size: 0.7rem; color: #f9a825; font-weight: 900; }
+  }
+}
+
+.info-section {
+  padding: 40px 20px;
+  .info-card {
+    background: #fdf5e6; border-radius: 30px; padding: 30px; text-align: center; border: 1px dashed #dcd3c1;
+    ion-icon { font-size: 2.5rem; color: #f9a825; margin-bottom: 15px; }
+    h3 { font-weight: 800; color: #1a4d47; margin-bottom: 10px; }
+    p { color: #666; line-height: 1.6; font-size: 0.85rem; }
+  }
+}
+
+.clear-btn { margin-top: 10px; font-size: 0.8rem; font-weight: 700; }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,97 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" class="premium-toolbar">
+    <ion-title>{{ 'KAZA_PAGE.TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleNotifications()" class="premium-icon-btn">
+        <ion-icon [name]="isNotificationsEnabled ? 'notifications' : 'notifications-off-outline'" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="resetAll()" class="premium-icon-btn">
+        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light" class="ion-padding-bottom">
+  <div class="hero-section anim-fade-in">
+    <div class="hero-content">
+      <div class="user-greeting">
+        <h1>{{ 'KAZA_PAGE.GREETING' | translate }}</h1>
+        <p>{{ 'KAZA_PAGE.GREETING_SUB' | translate }}</p>
+      </div>
+      <ion-chip [color]="isNotificationsEnabled ? 'success' : 'medium'" class="notify-chip anim-pop-in">
+        <ion-icon name="radio-button-on-outline"></ion-icon>
+        {{ (isNotificationsEnabled ? 'KAZA_PAGE.NOTIFY_ON' : 'KAZA_PAGE.NOTIFY_OFF') | translate }}
+      </ion-chip>
+    </div>
+    <div class="wave-bg"></div>
+  </div>
+
+  <div class="main-content-container">
+    <div class="glass-card daily-tracker anim-slide-up">
+      <div class="card-header">
+        <div class="card-icon-title">
+          <ion-icon name="today-outline" color="primary"></ion-icon>
+          <h3>{{ 'KAZA_PAGE.DAILY_TITLE' | translate }}</h3>
+        </div>
+        <ion-note class="hint-note">{{ 'KAZA_PAGE.DAILY_HINT' | translate }}</ion-note>
+      </div>
+
+      <div class="bubbles-row">
+        <div *ngFor="let p of dailyPrayers"
+             class="p-bubble-wrapper"
+             [class.active]="p.kildi"
+             (click)="toggleDaily(p)">
+          <div class="squircle-circle anim-bounce-in" [class.done]="p.kildi">
+            <span class="abbr">{{ p.label | translate }}</span>
+            <ion-icon name="checkmark-sharp" class="check-icon" *ngIf="p.kildi"></ion-icon>
+          </div>
+          <span class="bubble-name">{{ p.full | translate }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label-row anim-fade-in">
+      <ion-icon name="time-outline"></ion-icon>
+      <span>{{ 'KAZA_PAGE.DEBTS_TITLE' | translate }}</span>
+      <div class="line"></div>
+    </div>
+
+    <div class="kaza-grid-container anim-grid-in">
+      <div *ngFor="let v of vakitler; let i = index"
+           class="premium-kaza-card anim-slide-up-index"
+           [style.--anim-index]="i">
+        <div class="v-header" [style.border-color]="'var(--ion-color-' + v.color + ')'">
+          <span class="v-name">{{ v.label | translate }}</span>
+          <button class="v-edit-btn" (click)="editBorc(v.id)">
+            <ion-icon name="create-outline"></ion-icon>
+          </button>
+        </div>
+
+        <div class="v-body">
+          <span class="v-count">{{ kazaData[v.id].kalan }}</span>
+          <span class="v-unit">{{ 'KAZA_PAGE.UNIT_TIMES' | translate }}</span>
+        </div>
+
+        <div class="v-footer">
+          <div class="action-btn-group">
+            <button class="btn-minus" (click)="updateCount(v.id, 1)">
+              <ion-icon name="add-outline"></ion-icon>
+            </button>
+            <button class="btn-kildim anim-press" [style.background-color]="'var(--ion-color-' + v.color + ')'" (click)="updateCount(v.id, -1)">
+              <ion-icon name="checkmark-done-circle" slot="start"></ion-icon>
+              {{ 'KAZA_PAGE.I_PRAYED' | translate }}
+            </button>
+          </div>
+          <div class="progress-bar-premium">
+            <div class="fill anim-progress"
+                 [style.width]="(getProgress(v.id) * 100) + '%'"
+                 [style.background-color]="'var(--ion-color-' + v.color + ')'"></div>
+          </div>
+          <span class="percent-label">%{{ (getProgress(v.id) * 100).toFixed(0) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

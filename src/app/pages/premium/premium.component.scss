@@ -1,0 +1,54 @@
+// Ekranın genel arka planı ve hizalaması
+ion-content {
+  --background: #f8f9fa; // Hafif kırık beyaz, göz yormayan arka plan
+}
+
+.premium-header {
+  text-align: center;
+  margin: 25px 0;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 10px;
+  }
+}
+
+// Paket Kartlarının Tasarımı
+ion-card {
+  border-radius: 16px; // Köşeleri yumuşattık
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); // Hafif, modern bir gölge
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  margin-bottom: 20px;
+  background: #ffffff;
+  transition: transform 0.2s ease;
+
+  &:active {
+    transform: scale(0.98); // Kartlara basıldığında hafif küçülme efekti
+  }
+
+  ion-card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  ion-card-subtitle {
+    margin-top: 5px;
+  }
+}
+
+// "Hemen Başlat" Butonları
+ion-button {
+  --border-radius: 12px; // Butonların köşelerini de yumuşattık
+  font-weight: 600;
+  font-size: 1rem;
+  height: 48px; // Butonları biraz daha dolgun ve basılabilir yaptık
+}

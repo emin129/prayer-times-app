@@ -1,0 +1,132 @@
+:host {
+  --ion-background-color: #f3f4f6;
+}
+
+.ambient-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 280px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #4338ca 50%, #6366f1 100%);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  z-index: -1;
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.2);
+}
+
+.main-container {
+  padding: 20px 16px;
+  margin-top: 10px;
+}
+
+.app-section {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 16px 8px;
+  letter-spacing: -0.5px;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:active {
+    transform: scale(0.9) translateY(4px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  // IslamAI Özel Tasarımı
+  &.ai-special {
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    .icon-wrapper {
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+      animation: floating 3s ease-in-out infinite;
+    }
+  }
+
+  .icon-wrapper {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4), 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .app-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #334155;
+    text-align: center;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+  }
+}
+
+@mixin glass-style($bg, $text) {
+  background: $bg;
+  color: $text;
+  border: 1px solid rgba($text, 0.1);
+}
+
+.glass-blue   { @include glass-style(#eff6ff, #2563eb); }
+.glass-gold   { @include glass-style(#fffbeb, #d97706); }
+.glass-purple { @include glass-style(#faf5ff, #9333ea); }
+.glass-cyan   { @include glass-style(#ecfeff, #0891b2); }
+.glass-amber  { @include glass-style(#fff7ed, #ea580c); }
+.glass-green  { @include glass-style(#f0fdf4, #16a34a); }
+.glass-teal   { @include glass-style(#f0fdfa, #0d9488); }
+.glass-indigo { @include glass-style(#eef2ff, #4f46e5); }
+.glass-orange { @include glass-style(#fff7ed, #f97316); }
+.glass-violet { @include glass-style(#f5f3ff, #7c3aed); }
+.glass-red    { @include glass-style(#fef2f2, #dc2626); }
+.glass-silver { @include glass-style(#f8fafc, #64748b); }
+.glass-rose   { @include glass-style(#fff1f2, #e11d48); }
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+/* 🛠️ EN ÜSTTEKİ KUTUYU KAPALI GRİ, YAZIYI BEYAZ YAPTIK */
+ion-toolbar {
+  --background: #475569 !important; /* Kutuyu koyu füme/kapalı gri yaptık */
+  --border-style: none;
+  font-weight: 700;
+  border-radius: 0 0 15px 15px; /* Alt köşelerdeki ovalliği koruduk */
+}
+
+ion-title {
+  color: #ffffff !important; /* Kapalı gride okunsun diye başlık yazısı beyaz oldu */
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+ion-toolbar ion-button {
+  --color: #ffffff !important; /* Sağdaki ayarlar ikonu da net görünsün diye beyaz oldu */
+}

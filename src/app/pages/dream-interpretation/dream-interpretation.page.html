@@ -1,0 +1,97 @@
+<ion-content class="aurora-wrapper" [fullscreen]="true">
+  <div class="aurora-bg">
+    <div class="blob purple"></div>
+    <div class="blob blue"></div>
+    <div class="blob gold"></div>
+  </div>
+
+  <div class="glass-overlay"></div>
+
+  <div class="main-content">
+    <header class="luxury-header animate__animated animate__fadeIn">
+      <ion-back-button defaultHref="/home" text="" class="back-gold"></ion-back-button>
+      <div class="brand-mini">
+        <span class="gold-text"> {{ 'DREAM_PAGE.TITLE' | translate }} </span>
+      </div>
+    </header>
+
+    <div class="content-body">
+
+      <div class="rights-info-badge animate__animated animate__fadeInDown">
+        <div class="badge-content">
+          <ion-icon name="sparkles-outline" class="gold-text"></ion-icon>
+
+          <ng-container *ngIf="isPremium">
+            <span *ngIf="remainingRights > 0">{{ 'DREAM_PAGE.PREMIUM_RIGHTS_REMAINING' | translate: { count: remainingRights } }}</span>
+            <span *ngIf="remainingRights <= 0">{{ 'DREAM_PAGE.PREMIUM_LIMIT_REACHED' | translate }}</span>
+          </ng-container>
+
+          <ng-container *ngIf="!isPremium">
+            <span *ngIf="remainingRights > 0">{{ 'DREAM_PAGE.FREE_RIGHTS_REMAINING' | translate: { count: remainingRights } }}</span>
+            <span *ngIf="remainingRights <= 0 && watchedAdsCount < 2">{{ 'DREAM_PAGE.EARN_RIGHT_BY_AD' | translate }}</span>
+            <span *ngIf="remainingRights <= 0 && watchedAdsCount >= 2">{{ 'DREAM_PAGE.DAILY_LIMIT_REACHED' | translate }}</span>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="input-container animate__animated animate__fadeInDown">
+        <div class="section-title">
+          <ion-icon name="moon-outline"></ion-icon>
+          <span>{{ 'DREAM_PAGE.TELL_YOUR_DREAM' | translate }}</span>
+        </div>
+
+        <div class="premium-glass-box">
+          <ion-textarea
+            [(ngModel)]="dreamInput"
+            [placeholder]="'DREAM_PAGE.PLACEHOLDER' | translate"
+            rows="6"
+            class="vibrant-textarea"
+            [autoGrow]="true">
+          </ion-textarea>
+        </div>
+
+        <button
+          class="vibrant-cta"
+          (click)="onInterpret()"
+          [disabled]="isLoading || !dreamInput.trim() || (remainingRights <= 0 && (isPremium || watchedAdsCount >= 2))">
+          <div class="btn-content" *ngIf="!isLoading">
+            <span *ngIf="remainingRights > 0 || isPremium || watchedAdsCount >= 2">{{ 'DREAM_PAGE.START_INTERPRET' | translate }}</span>
+            <span *ngIf="!isPremium && remainingRights <= 0 && watchedAdsCount < 2">{{ 'DREAM_PAGE.EARN_AND_START' | translate }}</span>
+
+            <ion-icon *ngIf="remainingRights > 0 || isPremium || watchedAdsCount >= 2" name="sparkles-sharp"></ion-icon>
+            <ion-icon *ngIf="!isPremium && remainingRights <= 0 && watchedAdsCount < 2" name="videocam-outline"></ion-icon>
+          </div>
+          <ion-spinner *ngIf="isLoading" name="crescent" color="light"></ion-spinner>
+        </button>
+      </div>
+
+      <div *ngIf="result || isLoading" class="result-display animate__animated animate__fadeInUp">
+        <div class="result-glass-card">
+
+          <div *ngIf="isLoading" class="loading-state">
+            <div class="loader-ring"></div>
+            <p>{{ 'DREAM_PAGE.LOADING_MSG' | translate }}</p>
+          </div>
+
+          <div *ngIf="result && !isLoading" class="interpretation">
+            <div class="res-header">
+              <div class="line"></div>
+              <span>{{ 'DREAM_PAGE.RESULT_HEADER' | translate }}</span>
+              <div class="line"></div>
+            </div>
+
+            <div class="text-content" [innerHTML]="result"></div>
+
+            <div class="footer-actions">
+              <button class="reset-link" (click)="clearPage()">
+                <ion-icon name="refresh-circle-outline"></ion-icon>
+                {{ 'DREAM_PAGE.TELL_ANOTHER_DREAM' | translate }}
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

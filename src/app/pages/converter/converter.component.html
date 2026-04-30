@@ -1,0 +1,82 @@
+<ion-content class="converter-page" [fullscreen]="true">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+
+  <div class="glass-container">
+    <div class="mode-toggle" (click)="toggleMode()">
+      <div class="toggle-track">
+        <div class="toggle-thumb" [style.transform]="isMiladiToHicri ? 'translateX(0)' : 'translateX(100%)'"></div>
+        <div class="label-box">
+          <span [class.active]="isMiladiToHicri">{{ 'CONVERTER_PAGE.GREGORIAN' | translate }}</span>
+          <span [class.active]="!isMiladiToHicri">{{ 'CONVERTER_PAGE.HIJRI' | translate }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-card" [class.is-rotating]="isRotating">
+
+      <div class="input-section" *ngIf="isMiladiToHicri">
+        <div class="section-title">{{ 'CONVERTER_PAGE.SELECT_GREGORIAN' | translate }}</div>
+        <div class="picker-wrapper">
+          <ion-datetime-button datetime="date-picker"></ion-datetime-button>
+
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime
+                id="date-picker"
+                presentation="date"
+                [value]="selectedMiladiDate"
+                (ionChange)="onDateChange($event)"
+                [showDefaultButtons]="true"
+                locale="tr-TR">
+              </ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </div>
+
+        <ion-button fill="clear" class="btn-today" (click)="setToToday()">
+          <ion-icon name="sync-outline" slot="start"></ion-icon>
+          {{ 'CONVERTER_PAGE.RETURN_TODAY' | translate }}
+        </ion-button>
+      </div>
+
+      <div class="input-section" *ngIf="!isMiladiToHicri">
+        <div class="section-title">{{ 'CONVERTER_PAGE.ENTER_HIJRI' | translate }}</div>
+        <div class="hicri-grid">
+          <div class="grid-item">
+            <label>{{ 'CONVERTER_PAGE.DAY' | translate }}</label>
+            <ion-input type="number" [(ngModel)]="hDay" (ionInput)="convert()"></ion-input>
+          </div>
+          <div class="grid-item wide">
+            <label>{{ 'CONVERTER_PAGE.MONTH' | translate }}</label>
+            <ion-select [(ngModel)]="hMonth" (ionChange)="convert()" interface="popover">
+              <ion-select-option *ngFor="let m of monthsHicri; let i = index" [value]="i+1">
+                {{ m }}
+              </ion-select-option>
+            </ion-select>
+          </div>
+          <div class="grid-item">
+            <label>{{ 'CONVERTER_PAGE.YEAR' | translate }}</label>
+            <ion-input type="number" [(ngModel)]="hYear" (ionInput)="convert()"></ion-input>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-divider">
+        <div class="line"></div>
+        <ion-icon name="chevron-down-circle"></ion-icon>
+        <div class="line"></div>
+      </div>
+
+      <div class="result-display" *ngIf="convertedResult">
+        <div class="result-head">{{ 'CONVERTER_PAGE.CONVERTED_DATE' | translate }}</div>
+        <div class="result-text">{{ convertedResult }}</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <ion-icon name="shield-checkmark-outline"></ion-icon>
+      <span>{{ 'CONVERTER_PAGE.DATABASE_ACTIVE' | translate }}</span>
+    </div>
+  </div>
+</ion-content>

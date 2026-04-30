@@ -1,27 +1,287 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+/* ==========================================================================
+   Genel Arka Plan ve Ana Kapsayıcı
+   ========================================================================== */
+.main-content-area { 
+  --background: #f1f8e9; 
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* ==========================================================================
+   Üst Kısım (Hero Section)
+   ========================================================================== */
+.hero-section {
+  height: 48vh; 
+  background-size: cover; 
+  background-position: center; 
+  position: relative;
+
+  .hero-overlay {
+    height: 100%; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+    padding: calc(env(safe-area-inset-top) + 15px) 15px 0 15px;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+/* Şeffaf Kartlar (Konum & Hava Durumu) */
+.glass-card { 
+  background: rgba(255, 255, 255, 0.12); 
+  backdrop-filter: blur(15px); 
+  border-radius: 18px; 
+  padding: 10px; 
 }
 
-#container a {
-  text-decoration: none;
+.top-info-row { 
+  display: flex; 
+  justify-content: space-between; 
+  gap: 8px; 
+  margin-bottom: 20px; 
+}
+
+.location-box {
+  flex: 1; 
+  display: flex; 
+  align-items: center; 
+  gap: 10px;
+
+  .loc-icon-bg {
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    background: rgba(255, 255, 255, 0.15);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    ion-icon { color: #ffd700; font-size: 1.2rem; }
+  }
+
+  .loc-details {
+    display: flex; 
+    flex-direction: column;
+    .city-name { color: white; font-size: 0.9rem; font-weight: 800; }
+    .district-name { color: rgba(255,255,255,0.7); font-size: 0.65rem; }
+  }
+}
+
+.weather-box {
+  flex: 1.8; 
+  overflow: hidden;
+
+  .weather-scroll-container { 
+    display: flex; 
+    overflow-x: auto; 
+    gap: 10px; 
+    padding-bottom: 5px; 
+    &::-webkit-scrollbar { display: none; } 
+  }
+
+  .weather-day-card {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    min-width: 38px;
+    .day-label { font-size: 0.55rem; color: rgba(255,255,255,0.7); }
+    ion-icon { color: white; font-size: 20px; }
+    .degree-label { font-size: 0.7rem; color: white; font-weight: 700; }
+  }
+}
+
+/* Büyük Sayaç */
+.timer-wrapper {
+  text-align: center; 
+  color: white; 
+  margin-top: 20px;
+
+  .vakit-label { font-size: 0.7rem; opacity: 0.8; letter-spacing: 1px; }
+  .big-timer { font-size: 4.5rem; font-weight: 200; margin: 5px 0; letter-spacing: -2px; }
+  
+  .date-row { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    font-size: 0.8rem; 
+    .dot { color: #ffd700; } 
+  }
+}
+
+/* ==========================================================================
+   Kaydırılabilir İçerik Alanı (Alt Kısım)
+   ========================================================================== */
+.scrollable-content {
+  background: blanchedalmond; 
+  padding: 30px 20px; 
+  margin-top: -35px;
+  border-radius: 35px 35px 0 0; 
+  position: relative; 
+  z-index: 10; 
+  min-height: 55vh;
+}
+
+.vakit-section-header {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  margin-bottom: 15px;
+  ion-icon { color: #4db6ac; }
+  span { color: #1a4d47; font-weight: 900; font-size: 0.9rem; }
+}
+
+/* Namaz Vakitleri Kartları */
+.vakit-container-fixed { width: 100%; margin-bottom: 20px; }
+.vakit-wrap { display: flex; justify-content: space-between; gap: 4px; }
+
+.v-card-mini {
+  flex: 1; 
+  background: white; 
+  padding: 12px 2px; 
+  border-radius: 12px; 
+  text-align: center; 
+  border: 1px solid #eee; 
+  min-width: 0;
+
+  .v-label { font-size: 0.52rem; color: #888; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; display: block; }
+  .v-time { font-size: 0.82rem; color: #222; font-weight: 800; }
+  
+  &.active {
+    background: linear-gradient(135deg, #1a4d47 0%, #2e7d32 100%); 
+    border: none;
+    .v-label { color: rgba(255,255,255,0.7); } 
+    .v-time { color: white; }
+  }
+}
+
+/* Hızlı Butonlar */
+.quick-actions-row {
+  display: flex; 
+  justify-content: space-around; 
+  margin-bottom: 25px;
+
+  .action-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 6px; 
+    span { font-size: 0.7rem; font-weight: 700; color: #1a4d47; } 
+  }
+
+  .action-circle {
+    width: 55px; 
+    height: 55px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    ion-icon { font-size: 1.5rem; color: white; }
+    &:active { transform: scale(0.9); transition: 0.1s; }
+  }
+
+  .purple-bg { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+  .blue-bg { background: linear-gradient(135deg, #1565c0, #42a5f5); }
+  .gold-bg { background: linear-gradient(135deg, #f9a825, #fdd835); }
+}
+
+/* Hikmet, Ayet, Hadis Kartları */
+.wisdom-card {
+  background: #1e2120; 
+  padding: 20px; 
+  border-radius: 20px; 
+  margin-bottom: 15px; 
+  border-left: 5px solid #ffca28;
+
+  p { color: #eee; font-size: 0.95rem; margin: 12px 0; line-height: 1.5; }
+  .arabic-text { text-align: right; direction: rtl; font-size: 1.4rem; color: white; margin-bottom: 15px; font-family: 'Scheherazade New', serif; }
+  .meal-text { font-style: italic; color: #ccc; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; }
+
+  .w-header { font-size: 0.75rem; font-weight: 900; color: #ffca28; display: flex; align-items: center; gap: 5px; text-transform: uppercase; }
+
+  &.gold-border { border-left-color: #ffd700; .w-header { color: #ffd700; } }
+  &.green-border { border-left-color: #4db6ac; .w-header { color: #4db6ac; } }
+  &.blue-border { border-left-color: #42a5f5; .w-header { color: #42a5f5; } }
+}
+
+.w-footer { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 15px; 
+  padding-top: 10px; 
+  border-top: 1px solid rgba(255,255,255,0.05); 
+  .w-source { font-size: 0.7rem; color: #888; } 
+}
+
+/* Paylaş Butonları */
+.share-pill {
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+  background: rgba(77, 182, 172, 0.15);
+  border: none; 
+  padding: 6px 14px; 
+  border-radius: 20px; 
+  color: #4db6ac; 
+  font-size: 0.7rem; 
+  font-weight: 800;
+  &:active { transform: scale(0.95); }
+  &.gold-pill { background: rgba(255, 215, 0, 0.15); color: #ffd700; }
+}
+
+/* ==========================================================================
+   🎯 YENİ ALT NAVİGASYON (Alt Banner Reklamı Uyumlu)
+   ========================================================================== */
+.modern-nav-bar {
+  position: fixed; 
+  bottom: 15px; /* 🔥 Reklam YOKKEN ekranın en altına yakın duracak */
+  left: 3%; 
+  width: 94%; 
+  height: 70px;
+  background: wheat; 
+  border-radius: 22px; 
+  display: flex; 
+  justify-content: space-around;
+  align-items: center; 
+  z-index: 1000; 
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  transition: bottom 0.3s ease-in-out; /* 🔥 Aşağı yukarı kayarken yumuşak bir geçiş sağlar */
+
+  /* 🔥 REKLAM VARSA BU CLASS HTML'DEN GELİP DEVREYE GİRECEK */
+  &.has-ad-style {
+    bottom: 80px; /* 🔥 Senin tam istediğin harika havada süzülme mesafesi */
+  }
+
+  .nav-item {
+    color: #888; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    flex: 1;
+
+    ion-icon { font-size: 1.45rem; transition: 0.3s; }
+    span { font-size: 0.55rem; font-weight: 700; margin-top: 4px; }
+    
+    &.active { 
+      color: #1a4d47; 
+      ion-icon { color: #4db6ac; transform: translateY(-2px); } 
+    }
+  }
+}
+
+/* Hem süzülen menü hem de alt banner reklamın arkada bir şey ezmemesi için emniyet boşluğu */
+.bottom-spacer { height: 170px !important; }
+
+/* 🚀 VİDEO REKLAM KUTUSU STİLLERİ */
+.video-ad-box {
+  min-height: 200px;
+  border-left: 5px solid #42a5f5 !important;
+  
+  .w-header { color: #42a5f5; }
+
+  .real-ad-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    min-height: 150px;
+    border-radius: 12px;
+  }
+  .ad-placeholder-text { font-size: 0.75rem; color: #666; font-weight: bold; }
 }

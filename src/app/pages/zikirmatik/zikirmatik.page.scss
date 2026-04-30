@@ -1,0 +1,124 @@
+$bg-color: #f0f2f5;
+$primary: #4a90e2;
+$text-dark: #2d3436;
+$text-light: #636e72;
+$danger: #ff7675;
+$glass-bg: rgba(255, 255, 255, 0.7);
+
+.modern-zikir {
+  --background: #{$bg-color};
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-glass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px 20px;
+  background: $glass-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  .header-content h2 { margin: 4px 0 0; font-weight: 800; color: $text-dark; font-size: 1.4rem; }
+
+  .reset-btn {
+    --color: #{$danger};
+    --background: rgba(#{$danger}, 0.1);
+    --border-radius: 12px;
+    font-size: 1.4rem;
+    height: 40px;
+    width: 40px;
+    box-shadow: 0 4px 10px rgba($danger, 0.2);
+
+    ion-icon { stroke-width: 40px; }
+    &:active { transform: scale(0.9); }
+  }
+}
+
+.dua-glass-card {
+  width: 100%;
+  background: $glass-bg;
+  border-radius: 24px;
+  padding: 24px;
+  margin-top: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  .arabic { font-size: 1.8rem; direction: rtl; line-height: 2.6rem; }
+}
+
+.zikir-selector-wrapper {
+  width: 100%;
+  margin: 25px 0;
+  overflow-x: auto;
+  &::-webkit-scrollbar { display: none; }
+  .zikir-chips {
+    display: flex;
+    gap: 12px;
+    padding: 10px 4px;
+    .chip-item {
+      white-space: nowrap;
+      padding: 10px 18px;
+      background: #fff;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.03);
+      &.active { background: $primary; color: #fff; transform: translateY(-2px); }
+      &.add-btn { border: 1.5px dashed $primary; background: rgba($primary, 0.05); color: $primary; font-weight: 700; }
+      .delete-icon { font-size: 1.2rem; color: $danger; opacity: 0.8; }
+      &.active .delete-icon { color: #fff; }
+    }
+  }
+}
+
+.counter-engine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .neu-button-outer {
+    width: 240px; height: 240px; border-radius: 50%; background: $bg-color;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 15px 15px 30px #d1d9e6, -15px -15px 30px #ffffff;
+    &:active { transform: scale(0.96); }
+    .neu-button-inner {
+      width: 190px; height: 190px; border-radius: 50%; background: $bg-color;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff;
+      .big-num { font-size: 4.5rem; font-weight: 900; color: $primary; }
+    }
+  }
+  .reset-action {
+    margin-top: 25px; display: flex; align-items: center; gap: 8px;
+    color: $danger; font-weight: 700; font-size: 0.9rem;
+    padding: 10px 20px; background: white; border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    &:active { transform: scale(0.95); }
+  }
+}
+
+::ng-deep .kabul-toast {
+  --background: #{$primary};
+  --color: #fff;
+  --border-radius: 18px;
+  --button-color: #fff;
+  font-weight: 700;
+}
+/* src/global.scss dosyasının en altına ekle */
+.kabul-toast {
+  --background: #4a90e2 !important; // Senin primary mavi rengin
+  --color: #ffffff !important;
+  --border-radius: 20px !important;
+  --button-color: #ffffff !important;
+  --z-index: 99999 !important; // Mobilde en öne çıksın diye
+  font-weight: 700;
+  font-size: 1.1rem;
+}

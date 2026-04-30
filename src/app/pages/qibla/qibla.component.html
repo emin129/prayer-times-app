@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true" class="qibla-page">
+  <div class="main-wrapper">
+
+    <div class="header-section">
+      <h1 class="title">{{ 'QIBLA_PAGE.TITLE' | translate }}</h1>
+      <div class="distance-badge">
+        <ion-icon name="location-sharp"></ion-icon>
+        <span>{{ 'QIBLA_PAGE.NEAR_MECCA' | translate }}</span>
+      </div>
+    </div>
+
+    <div class="compass-outer">
+      <div class="fixed-indicator"></div>
+
+      <div class="compass-inner" [style.transform]="'rotate(' + (-currentHeading) + 'deg)'">
+
+        <div class="ticks">
+          <div class="tick" *ngFor="let t of [0,30,60,90,120,150,180,210,240,270,300,330]"
+               [style.transform]="'rotate(' + t + 'deg)'">
+            <span [class.main-dir]="t % 90 === 0">{{ t === 0 ? 'N' : t === 90 ? 'E' : t === 180 ? 'S' : t === 270 ? 'W' : '' }}</span>
+          </div>
+        </div>
+
+        <div class="qibla-marker" [style.transform]="'rotate(' + qiblaAngle + 'deg)'">
+          <div class="kaaba-glow" [class.aligned]="isAligned"></div>
+          <div class="kaaba-box">🕋</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-card" [class.aligned]="isAligned">
+      <div class="degree-display">
+        <span class="current">{{ Math.round(currentHeading) }}°</span>
+        <span class="target">{{ 'QIBLA_PAGE.TARGET' | translate: { degree: Math.round(qiblaAngle) } }}</span>
+      </div>
+
+      <div class="status-msg">
+        <ion-icon [name]="isAligned ? 'checkmark-circle' : 'sync-outline'"
+                  [class.rotating]="!isAligned"></ion-icon>
+        <p>{{ (isAligned ? 'QIBLA_PAGE.ALIGNED' : 'QIBLA_PAGE.NOT_ALIGNED') | translate }}</p>
+      </div>
+
+      <div class="calibration-hint">
+        {{ 'QIBLA_PAGE.CALIBRATION_HINT' | translate }}
+      </div>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true" class="radio-page">
+  <div class="ambient-glow"></div>
+
+  <audio #audioPlayer style="display: none;"></audio>
+
+  <div class="main-wrapper">
+    <div class="player-card glass-card" [class.playing]="isPlaying">
+
+      <div class="status-badge" *ngIf="isPlaying">
+        <span class="dot"></span> {{ 'RADIO_PAGE.LIVE' | translate }}
+      </div>
+
+      <div class="icon-circle">
+        <ion-icon [name]="currentRadio?.icon || 'radio-outline'"></ion-icon>
+        <div class="pulse-ring" *ngIf="isPlaying"></div>
+      </div>
+
+      <div class="info">
+        <h2>{{ currentRadio?.name || ('RADIO_PAGE.SELECT_RADIO' | translate) }}</h2>
+        <p>
+          {{ isLoading ? ('RADIO_PAGE.LOADING' | translate) :
+             (isPlaying ? ('RADIO_PAGE.AUDIO_ACTIVE' | translate) : ('RADIO_PAGE.SELECT_BELOW' | translate)) }}
+        </p>
+      </div>
+
+      <div class="visualizer" *ngIf="isPlaying">
+        <div class="bar" *ngFor="let i of [1,2,3,4,5,6,7]"></div>
+      </div>
+    </div>
+
+    <div class="list-container">
+      <div class="label">{{ 'RADIO_PAGE.CHANNEL_LIST' | translate }}</div>
+
+      <div class="glass-item"
+           *ngFor="let radio of radioList"
+           (click)="toggleRadio(radio)"
+           [class.active]="currentRadio?.url === radio.url">
+
+        <div class="item-icon-box">
+          <ion-icon [name]="radio.icon"></ion-icon>
+        </div>
+
+        <ion-label>
+          <h3>{{ radio.name }}</h3>
+          <p>{{ radio.sub ? (radio.sub | translate) : ('RADIO_PAGE.DEFAULT_STREAM' | translate) }}</p>
+        </ion-label>
+
+        <div class="action-btn">
+          <ion-spinner *ngIf="isLoading && currentRadio?.url === radio.url" name="crescent"></ion-spinner>
+
+          <ion-icon *ngIf="!(isLoading && currentRadio?.url === radio.url)"
+                    [name]="(isPlaying && currentRadio?.url === radio.url) ? 'pause-circle' : 'play-circle-outline'">
+          </ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

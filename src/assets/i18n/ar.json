@@ -1,0 +1,317 @@
+{
+  "SETTINGS_TITLE": "الإعدادات",
+  "GENERAL_SETTINGS": "الإعدادات العامة",
+  "LANGUAGE_SECTION": "إعدادات اللغة",
+  "SELECT_LANGUAGE": "لغة التطبيق",
+  "APPEARANCE_SECTION": "المظهر",
+  "DARK_MODE": "الوضع الداكن",
+  "PRAYER_NOTIFICATIONS": "إشعارات أوقات الصلاة",
+  "PRE_NOTIFICATION": "تذكير قبل الوقت",
+  "MINUTES": "دقائق قبل",
+  "OFF": "مغلق",
+  "QIBLA": "بوصلة القبلة",
+  "ACCESSIBILITY_SECTION": "إمكانية الوصول",
+  "AUTO_LOCATION": "الموقع التلقائي (GPS)",
+  "SEARCHING_SATELLITE": "البحث عن القمر الصناعي...",
+  "LOCATION_ACTIVE": "الموقع نشط، تم تحديث الأوقات.",
+  "ACTIVE": "نشط حاليا",
+  "STATIC_LOCATION": "موقع ثابت",
+  "SOUND_CONTROL": "التحكم بالصوت",
+  "TEST_NOW": "اختبر الآن",
+  "PRAYER_TIMES_TITLE": "أوقات الصلاة",
+  "NEXT_PRAYER": "الأذان القادم",
+  "TIME_REMAINING": "الوقت المتبقي",
+  "HOME": "الصفحة الرئيسية",
+  "ZIKIRMATIK": "المسبحة",
+  "APPLICATIONS": "التطبيقات",
+  "LIBRARY": "المكتبة",
+  "DREAM_TAB": "تفسير الأحلام",
+  "DREAM": "الأحلام",
+  "ISLAM_AI": "IslamAI",
+  "VERSE_OF_THE_DAY": "آية اليوم",
+  "HADITH_OF_THE_DAY": "حديث اليوم",
+  "NOTIFICATION_TITLE": "وقت {{prayer}}",
+  "NOTIFICATION_BODY": "أذان {{prayer}} يرفع الآن...",
+  "PRE_NOTIFICATION_BODY": "متبقي {{min}} دقائق على وقت {{prayer}}.",
+
+  "QUICK_ACTIONS": {
+    "TEFEUL": "تفاؤل",
+    "RADIO": "راديو",
+    "ZIKIRMATIK": "المسبحة"
+  },
+
+  "WISDOM_OF_THE_DAY": "حكمة اليوم",
+  "PRAYER_OF_THE_TIME": "دعاء الوقت",
+  "SHARE": "مشاركة",
+
+  "SOUNDS": {
+    "EZAN": "أذان مكة",
+    "EZAN_DESC": "أذان مؤثر على طراز المسجد الحرام.",
+    "MEDINE_EZAN": "أذان المدينة",
+    "MEDINE_EZAN_DESC": "النغمة الهادئة للمسجد النبوي.",
+    "AYASOFYA_EZAN": "أذان آيا صوفيا",
+    "AYASOFYA_EZAN_DESC": "أذان مقامي من قلب اسطنبول."
+  },
+
+  "SETTINGS": {
+    "DEFAULT_CITY": "المدينة الافتراضية",
+    "SELECT_CITY": "اختر المدينة",
+    "CANCEL": "إلغاء",
+    "LOCATION_HELP": "يتم الاعتماد على هذه المدينة عندما يكون الـ GPS مغلقًا."
+  },
+
+  "DREAM_SECTION": {
+    "TITLE": "تفسير الأحلام",
+    "SUBTITLE": "احكِ حلمك، عساه خيراً...",
+    "PLACEHOLDER": "البارحة في حلمي...",
+    "INTERPRET_BTN": "عبر بالخير ✨",
+    "INTERPRETATION_HEADER": "تفسير الحلم",
+    "LOADING_MSG": "يتم تحليل حلمك...",
+    "CLEAR_PAGE": "مسح الصفحة",
+    "ERROR_MSG": "خطأ في الاتصال! يرجى المحاولة مرة أخرى.",
+    "EMPTY_RESULT": "ضاع الحلم في الأعماق، احكه مرة أخرى."
+  },
+  "ZIKIR_SUBHANALLAH_AD": "سبحان الله",
+  "ZIKIR_SUBHANALLAH_FAYDA": "ينزه الله عن كل صفات النقص.",
+  "ZIKIR_ELHAMDULILLAH_AD": "الحمد لله",
+  "ZIKIR_ELHAMDULILLAH_FAYDA": "الشكر والحمد لله.",
+  "PRAYERS": {
+    "Fajr": "الإمساك",
+    "Sunrise": "الشروق",
+    "Dhuhr": "الظهر",
+    "Asr": "العصر",
+    "Maghrib": "المغرب",
+    "Isha": "العشاء"
+  },
+  "ABOUT_SECTION": "حول",
+  "ABOUT_APP": "حول التطبيق",
+  "DEVELOPER": "المطور",
+  "DEVELOPER_NAME": "محمد أمين إجدرها",
+  "DEVELOPER_LOCATION": "أنطاليا / تركيا",
+  "APP_DESCRIPTION_TITLE": "وصف التطبيق",
+  "APP_DESCRIPTION_TEXT": "يساعدك تطبيق أوقات الصلاة على تتبع صلواتك بواجهته الحديثة وحساباته الدقيقة للوقت.",
+  "APP_LONG_DESCRIPTION": "تم تصميم هذا الدليل الرقمي ليجمع بين التكنولوجيا والروحانية، ويهدف إلى جلب السلام إلى قلبك والبركة في وقتك. إنه ليس مجرد تقويم؛ إنه رفيق يرافق رحلتك بكلمات حكيمة تفتح الباب أمام الأرشيفات القديمة، ومجموعة من التفاؤل، ومحتويات متعمقة. لمن يعرف قيمة الوقت، الطريقة الأكثر جمالية للتواصل مع صاحب الوقت.",
+  "FOLLOW_US": "تابعنا",
+  "COPYRIGHT": "© 2026 جميع الحقوق محفوظة.",
+  "CANCEL": "إلغاء",
+  "APPLICATIONS_TITLE": "التطبيقات",
+  "BASIC_TOOLS": "الأدوات الأساسية",
+  "VAKITLER_ZIKIR": "الأوقات والأذكار",
+  "LIBRARY_BROADCAST": "المكتبة والبث",
+  "APP_OTHER": "التطبيق والآخر",
+  "REMOVE_ADS": "إزالة الإعلانات",
+  "KAZA_NAMAZI": "قضاء الصلوات",
+  "YAKINDAKI_CAMILER": "المساجد القريبة",
+  "BOYKOT": "مقاطعة",
+  "KABE_CANLI": "الكعبة مباشر",
+  "RADYO": "راديو",
+  "EBCED": "حساب الجمل",
+  "TEFEUL": "تفاؤل",
+  "ESMAUL_HUSNA": "الأسماء الحسنى",
+  "HOLY_DAYS": "الأيام الدينية",
+  "IMSAKIYE": "الإمساكية",
+  "CONVERTER": "محول هجري-ميلادي",
+  "CEVSEN": "جوشن",
+  "KURAN": "القرآن الكريم",
+  "REMINDER":"تذكير",
+  "PREMIUM_SUBTITLE": "انتقل إلى بريميوم، واستمتع بالتطبيق.",
+  "PRAYER_NOTIFICATIONS": "إشعارات الوقت",
+  "EZAN_SOUND_SELECTION": "اختيار صوت الأذان",
+  "MUTE": "كتم",
+  "UNMUTE": "تشغيل",
+  "MAKAM": "مقام",
+  "SILENT": "صامت",
+  "PRE_PRAYER_REMINDER": "تذكير قبل الصلاة",
+  "DAILY_BABY_NAMES": "أسماء المواليد اليومية",
+  "SHARE": "مشاركة",
+
+
+  "CONVERTER_PAGE": {
+    "GREGORIAN": "ميلادي",
+    "HIJRI": "هجري",
+    "SELECT_GREGORIAN": "اختر التاريخ الميلادي",
+    "RETURN_TODAY": "العودة إلى اليوم",
+    "ENTER_HIJRI": "أدخل التاريخ الهجري",
+    "DAY": "يوم",
+    "MONTH": "شهر",
+    "YEAR": "عام",
+    "CONVERTED_DATE": "التاريخ المحول",
+    "DATABASE_ACTIVE": "قاعدة بيانات أم القرى نشطة"
+  },
+
+  "DREAM_PAGE": {
+    "TITLE": "تفسير الأحلام",
+    "PREMIUM_RIGHTS_REMAINING": "حقوق بريميوم المتبقية لديك: {{ count }}",
+    "PREMIUM_LIMIT_REACHED": "لقد انتهى الحد الأقصى لبريميوم الخاص بك، ننتظر رؤيتك غدًا!",
+    "FREE_RIGHTS_REMAINING": "حقوق الأحلام المتبقية لديك: {{ count }}",
+    "EARN_RIGHT_BY_AD": "يمكنك كسب حقوق بمشاهدة الإعلانات!",
+    "DAILY_LIMIT_REACHED": "انتهت حقوقك اليومية.",
+    "TELL_YOUR_DREAM": "احكِ حلمك",
+    "PLACEHOLDER": "ابدأ الحكاية...",
+    "START_INTERPRET": "ابدأ التفسير",
+    "EARN_AND_START": "اكسب الحق وابدأ",
+    "LOADING_MSG": "يتم تفسير حلمك...",
+    "RESULT_HEADER": "تفسير الحلم",
+    "TELL_ANOTHER_DREAM": "احك حلمًا آخر"
+  },
+
+  "EBCED_PAGE": {
+    "TITLE": "حساب الجمل",
+    "TOTAL_VALUE": "القيمة الإجمالية",
+    "PLACEHOLDER": "اكتب اسماً أو كلمة...",
+    "HELPER_TEXT": "الأحرف اللاتينية والعربية مدعومة.",
+    "ANALYSIS_TITLE": "تحليل الحروف",
+    "CLEAR": "مسح",
+    "INFO_TITLE": "سر حساب الجمل",
+    "INFO_TEXT": "اكتشف القيم العددية للأسماء والكلمات. كل حرف يحمل معنى ورقمًا قديماً."
+  },
+
+  "LIBRARY_PAGE": {
+    "COLLECTION_LABEL": "مجموعة خاصة",
+    "COLLECTION_TITLE": "الأرشيف الرقمي",
+    "BOOKS": {
+      "CEVSEN_TITLE": "الجوشن الكبير",
+      "CEVSEN_SUBTITLE": "أقوى الدروع",
+      "KURAN_TITLE": "القرآن الكريم",
+      "KURAN_SUBTITLE": "الكلام الإلهي"
+    }
+  },
+
+  "READING_PAGE": {
+    "CHAPTER_COUNT": "{{ count }} قسم",
+    "CONTENTS": "المحتويات",
+    "RECORD_COUNT": "{{ count }} سجل"
+  },
+
+  "RADAR_PAGE": {
+    "TITLE": "رادار النظام",
+    "SCANNING_TITLE": "يتم مسح التردد",
+    "SCANNING_SUBTITLE": "تحليل الهياكل المحيطة...",
+    "MAP_ALT": "الخريطة",
+    "RANGE": "المدى:",
+    "STATUS": "الحالة:",
+    "STATUS_ACCESSIBLE": "يمكن الوصول إليه",
+    "SIGNAL_LOST": "انقطع الإشارة",
+    "NO_DATA_FOUND": "لم يتم العثور على نقطة بيانات نشطة في المنطقة المجاورة مباشرة.",
+    "RESCAN": "إعادة المسح"
+  },
+
+  "QIBLA_PAGE": {
+    "TITLE": "بوصلة القبلة",
+    "NEAR_MECCA": "أنت قريب من مكة",
+    "TARGET": "الهدف: {{ degree }}°",
+    "ALIGNED": "أنت تواجه القبلة تماماً",
+    "NOT_ALIGNED": "أدر الجهاز ببطء",
+    "CALIBRATION_HINT": "إذا كان غير صحيح، حرك الهاتف بشكل رقم \"8\""
+  },
+
+  "RADIO_PAGE": {
+    "LIVE": "بث مباشر",
+    "SELECT_RADIO": "اختر الراديو",
+    "LOADING": "جاري التحميل...",
+    "AUDIO_ACTIVE": "البث الصوتي نشط",
+    "SELECT_BELOW": "اختر من أدناه للاستماع",
+    "CHANNEL_LIST": "قائمة القنوات",
+    "DEFAULT_STREAM": "البث الرسمي"
+  },
+
+  "DYNAMIC_PAGE": {
+    "ESMA_COUNT": "الذكر: {{ count }}",
+    "UPCOMING": "يقترب",
+    "LOCATION_TIME_ALERT": "أوقات 3 أشهر حسب موقعك",
+    "SELECT_GREGORIAN": "اختر التاريخ الميلادي",
+    "HIJRI_RESULT": "المقابل الهجري",
+    "CALCULATION_INFO": "الحسابات وفقًا لتقويم أم القرى.",
+    "PREPARING_INFO": "جاري تحضير المعلومات..."
+  },
+
+  "REMINDER_PAGE": {
+    "NEW_REMINDER": "تذكير جديد",
+    "TITLE_PLACEHOLDER": "عنوان التذكير...",
+    "PICK": "اختر",
+    "CANCEL": "إلغاء",
+    "ADD_TO_LIST": "إضافة إلى القائمة",
+    "ACTIVE_REMINDERS": "التذكيرات النشطة",
+    "EMPTY_STATE": "لم تضف تذكيراً بعد يا أخي.",
+    "STATUS_ACTIVE": "الإشعار نشط",
+    "STATUS_MUTED": "مكتوم"
+  },
+
+  "TEFEUL_PAGE": {
+    "TITLE": "تفاؤل القلب",
+    "INTENT_TITLE": "انْوِ واضغط",
+    "INTENT_SUBTITLE": "راحة لقلبك، ونور لطريقك...",
+    "SHARE": "مشاركة",
+    "REFRESH": "تحديث"
+  },
+
+  "KAZA_PAGE": {
+    "TITLE": "تتبع الصلاة والقضاء",
+    "GREETING": "السلام عليكم! 👋",
+    "GREETING_SUB": "تقبل الله، كم النتيجة اليوم؟",
+    "NOTIFY_ON": "التذكير مفعل",
+    "NOTIFY_OFF": "صامت",
+    "DAILY_TITLE": "صلوات اليوم",
+    "DAILY_HINT": "يتم نقل ما لم يتم تحديده إلى القضاء في منتصف الليل.",
+    "DEBTS_TITLE": "صلواتك المقضية",
+    "UNIT_TIMES": "أوقات",
+    "I_PRAYED": "صليت"
+  },
+
+  "ZIKIR_PAGE": {
+    "HEADER_SUB": "روشتة روحية",
+    "INSTRUCTION": "اضغط على الزر للذكر"
+  },
+
+  "QUIZ_PAGE": {
+    "LOBBY_TITLE": "لوبي المسابقة",
+    "JOIN_ROOM": "انضمام للغرفة",
+    "CREATE_ROOM": "إنشاء غرفة",
+    "USERNAME": "اسم المستخدم",
+    "ROOM_CODE": "رمز الغرفة",
+    "ROOM_NAME": "اسم الغرفة",
+    "JOIN_BTN": "انضمام",
+    "CREATE_BTN": "إنشاء الغرفة",
+    "WAITING_PLAYERS": "في انتظار اللاعبين",
+    "READY": "جاهز",
+    "WAITING": "ينتظر",
+    "I_AM_READY": "أنا جاهز!",
+    "I_AM_NOT_READY": "لست جاهزاً",
+    "START_GAME": "ابدأ المسابقة",
+    "FOUNDER": "المؤسس",
+    "SECONDS": "ثانية",
+    "ENTER_NAME_ALERT": "يرجى إدخال اسمك أولاً!",
+    "ROOM_NOT_FOUND": "لم يتم العثور على الغرفة!",
+    "ROOM_FULL": "هذه الغرفة ممتلئة للأسف!",
+    "ALREADY_USED_NAME": "هذا الاسم مستخدم بالفعل في الغرفة!",
+    "ROOM_LOCKED": "الغرفة مغلقة برقم سري 🔒",
+    "WRONG_PASSWORD": "لقد أدخلت كلمة مرور خاطئة!",
+    "TIME_REMAINING": "الوقت المتبقي",
+    "NEXT_QUESTION": "السؤال التالي",
+    "CORRECT_ANSWER": "إجابة صحيحة!",
+    "QUESTION": "السؤال",
+    "YOUR_SCORE": "نقاطك",
+    "WAITING_TIME": "في انتظار انتهاء الوقت...",
+    "FINISH_TITLE": "انتهت المسابقة!",
+    "FINISH_SUB": "كان كفاحاً رائعاً، مبروك!",
+    "POINTS": "نقاط",
+    "OTHER_RANKS": "الترتيبات الأخرى",
+    "UNNAMED_ROOM": "غرفة بدون اسم",
+    "SELECT_SUBJECT": "اختر الموضوع",
+    "PASSWORD_OPTIONAL": "كلمة المرور (اختياري)",
+    "MAX_PLAYERS": "الحد الأقصى للاعبين",
+    "QUESTION_COUNT": "عدد الأسئلة",
+    "TIME_PER_QUESTION": "الوقت لكل سؤال"
+  },
+
+  "CATEGORIES": {
+    "ALL": "مختلط / منوع",
+    "GENERAL": "ثقافة عامة",
+    "COMPUTER": "علوم الكمبيوتر",
+    "SPORTS": "رياضة",
+    "HISTORY": "تاريخ",
+    "GEOGRAPHY": "جغرافيا",
+    "MYTHOLOGY": "الأساطير (الأديان والمعتقدات)",
+    "VIDEO_GAMES": "ألعاب الفيديو"
+  }
+}

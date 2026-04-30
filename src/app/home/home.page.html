@@ -1,20 +1,168 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [scrollY]="true" [forceOverscroll]="true" class="main-content-area">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="hero-section" [style.background-image]="'url(' + backgroundImage + ')'">
+    <div class="hero-overlay">
+      <div class="top-info-row">
+        <div class="glass-card location-box">
+          <div class="loc-icon-bg"><ion-icon name="location-sharp"></ion-icon></div>
+          <div class="loc-details">
+            <span class="city-name">{{ locationName }}</span>
+            <span class="district-name">{{ districtName }}</span>
+          </div>
+        </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <div class="glass-card weather-box">
+          <div class="weather-scroll-container">
+            <div class="weather-day-card" *ngFor="let day of dailyForecast">
+              <span class="day-label">{{ (day.dt * 1000) | date:'EEE':'':settingsService.currentLang }}</span>
+              <div class="icon-wrapper">
+                <ion-icon [name]="getWeatherIcon(day)"></ion-icon>
+              </div>
+              <span class="degree-label">{{ (day.temp?.max || 0) | number:'1.0-0' }}°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer-wrapper">
+        <span class="vakit-label">
+          {{ 'PRAYERS.' + getJsonKey(nextPrayerName) | translate }} {{ 'TIME_REMAINING' | translate }}
+        </span>
+        <h1 class="big-timer">{{ remainingTime }}</h1>
+        <div class="date-row">
+          <span>{{ now | date:'longDate':'':settingsService.currentLang }}</span>
+          <span class="dot">•</span>
+          <span>{{ hicriDate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrollable-content">
+
+    <div class="vakit-section-header">
+      <ion-icon name="time-outline"></ion-icon>
+      <span>{{ 'PRAYER_TIMES_TITLE' | translate }}</span>
+    </div>
+
+    <div class="vakit-container-fixed">
+      <div class="vakit-wrap">
+        <div class="v-card-mini" *ngFor="let p of prayerKeys" [class.active]="nextPrayerName === p">
+          <span class="v-label">{{ 'PRAYERS.' + getJsonKey(p) | translate }}</span>
+          <span class="v-time">{{ prayerTimes ? prayerTimes[p] : '--:--' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-actions-row">
+      <div class="action-item" (click)="goToTefeul()">
+        <div class="action-circle purple-bg"><ion-icon name="book-outline"></ion-icon></div>
+        <span>{{ 'QUICK_ACTIONS.TEFEUL' | translate }}</span>
+      </div>
+      <div class="action-item" (click)="goToRadio()">
+        <div class="action-circle blue-bg"><ion-icon name="radio-outline"></ion-icon></div>
+        <span>{{ 'QUICK_ACTIONS.RADIO' | translate }}</span>
+      </div>
+      <div class="action-item" (click)="goToZikirmatik()">
+        <div class="action-circle gold-bg"><ion-icon name="finger-print"></ion-icon></div>
+        <span>{{ 'QUICK_ACTIONS.ZIKIRMATIK' | translate }}</span>
+      </div>
+    </div>
+
+    <div class="wisdom-card dark-mode-card purple-border" *ngIf="dailyNames.boy.name || dailyNames.girl.name">
+      <div class="w-header purple-text">
+        <ion-icon name="calendar-number-outline"></ion-icon> {{ 'DAILY_BABY_NAMES' | translate }}
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+
+        <div *ngIf="dailyNames.boy.name" style="display: flex; flex-direction: column;">
+          <span style="color: #4facfe; font-weight: bold; font-size: 1.1rem;">♂ {{ dailyNames.boy.name }}</span>
+          <span style="color: #ffffff; font-size: 0.95rem; margin-top: 3px; line-height: 1.3;">{{ dailyNames.boy.meaning }}</span>
+        </div>
+
+        <div style="height: 1px; background: rgba(255,255,255,0.15); width: 100%;"></div>
+
+        <div *ngIf="dailyNames.girl.name" style="display: flex; flex-direction: column;">
+          <span style="color: #ff85e4; font-weight: bold; font-size: 1.1rem;">♀ {{ dailyNames.girl.name }}</span>
+          <span style="color: #ffffff; font-size: 0.95rem; margin-top: 3px; line-height: 1.3;">{{ dailyNames.girl.meaning }}</span>
+        </div>
+
+      </div>
+      <div class="w-footer" style="margin-top: 15px;">
+        <span></span>
+        <button class="share-pill" (click)="shareContent('DAILY_BABY_NAMES', dailyNames.boy.name + ' & ' + dailyNames.girl.name, 'Günün İsimleri')">
+          <ion-icon name="share-social-outline"></ion-icon> <span>{{ 'SHARE' | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wisdom-card dark-mode-card gold-border" *ngIf="dailyHikmet?.text">
+      <div class="w-header gold-text"><ion-icon name="sparkles-outline"></ion-icon> {{ 'WISDOM_OF_THE_DAY' | translate }}</div>
+      <p>"{{ dailyHikmet.text }}"</p>
+      <div class="w-footer">
+        <span class="w-source">— {{ dailyHikmet.source }}</span>
+        <button class="share-pill gold-pill" (click)="shareContent('WISDOM_OF_THE_DAY', dailyHikmet.text, dailyHikmet.source)">
+          <ion-icon name="share-social-outline"></ion-icon> <span>{{ 'SHARE' | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wisdom-card dark-mode-card" *ngIf="dailyVerse?.text">
+      <div class="w-header gold-text"><ion-icon name="bookmarks-outline"></ion-icon> {{ 'VERSE_OF_THE_DAY' | translate }}</div>
+      <p>"{{ dailyVerse.text }}"</p>
+      <div class="w-footer">
+        <span class="w-source">— {{ dailyVerse.source }}</span>
+        <button class="share-pill" (click)="shareContent('VERSE_OF_THE_DAY', dailyVerse.text, dailyVerse.source)">
+          <ion-icon name="share-social-outline"></ion-icon> <span>{{ 'SHARE' | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wisdom-card dark-mode-card green-border" *ngIf="dailyHadith?.text">
+      <div class="w-header green-text"><ion-icon name="chatbubble-ellipses-outline"></ion-icon> {{ 'HADITH_OF_THE_DAY' | translate }}</div>
+      <p>"{{ dailyHadith.text }}"</p>
+      <div class="w-footer">
+        <span class="w-source">— {{ dailyHadith.source }}</span>
+        <button class="share-pill" (click)="shareContent('HADITH_OF_THE_DAY', dailyHadith.text, dailyHadith.source)">
+          <ion-icon name="share-social-outline"></ion-icon> <span>{{ 'SHARE' | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wisdom-card dark-mode-card blue-border" *ngIf="dailyDua?.arapca">
+      <div class="w-header blue-text"><ion-icon name="hand-right-outline"></ion-icon> {{ 'PRAYER_OF_THE_TIME' | translate }}</div>
+      <p class="arabic-text">{{ dailyDua.arapca }}</p>
+      <p class="meal-text">{{ dailyDua.meal }}</p>
+      <div class="w-footer">
+        <button class="share-pill" (click)="shareContent('PRAYER_OF_THE_TIME', dailyDua.meal, dailyDua.ad)">
+          <ion-icon name="share-social-outline"></ion-icon> <span>{{ 'SHARE' | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="bottom-spacer"></div>
   </div>
 </ion-content>
+
+<div class="modern-nav-bar" [ngClass]="{'has-ad-style': isAdVisible}">
+  <div class="nav-item" (click)="goToApp()">
+    <ion-icon name="home-outline"></ion-icon>
+    <span>{{ 'APPLICATIONS' | translate }}</span>
+  </div>
+  <div class="nav-item" (click)="goToQibla()">
+    <ion-icon name="compass-outline"></ion-icon>
+    <span>{{ 'QIBLA' | translate }}</span>
+  </div>
+  <div class="nav-item" (click)="goToDream()">
+    <ion-icon name="moon-outline"></ion-icon>
+    <span>{{ 'DREAM_TAB' | translate }}</span>
+  </div>
+  <div class="nav-item" (click)="goToLibrary()">
+    <ion-icon name="book-outline"></ion-icon>
+    <span>{{ 'LIBRARY' | translate }}</span>
+  </div>
+  <div class="nav-item" (click)="goToSettings()">
+    <ion-icon name="options-outline"></ion-icon>
+    <span>{{ 'SETTINGS_TITLE' | translate }}</span>
+  </div>
+</div>

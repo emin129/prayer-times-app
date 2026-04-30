@@ -1,0 +1,82 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="nav-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" class="nav-btn glass-btn">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="cyber-title">{{ 'RADAR_PAGE.TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="loadNearbyMosques()" class="nav-btn glass-btn">
+        <ion-icon name="sync-outline" [class.rotating]="isLoading"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="nav-content">
+
+  <div class="hud-background">
+    <div class="grid-lines"></div>
+    <div class="radar-glow"></div>
+  </div>
+
+  <div *ngIf="isLoading" class="hud-loader">
+    <div class="hologram-circle">
+      <ion-icon name="scan-outline" class="scanning-icon"></ion-icon>
+      <div class="scanner-bar"></div>
+    </div>
+    <p>{{ 'RADAR_PAGE.SCANNING_TITLE' | translate }}</p>
+    <span>{{ 'RADAR_PAGE.SCANNING_SUBTITLE' | translate }}</span>
+  </div>
+
+  <div *ngIf="!isLoading && mosqueList.length > 0" class="hud-grid">
+    <div *ngFor="let mosque of mosqueList; let i = index"
+         (click)="openMap(mosque)"
+         class="hud-card"
+         [style.animation-delay]="(i * 0.08) + 's'">
+
+      <div class="hud-left">
+        <div class="cyber-map-container">
+          <img [src]="mosque.staticMapUrl" [alt]="'RADAR_PAGE.MAP_ALT' | translate" class="cyber-map-img">
+
+          <div class="glass-overlay"></div>
+          <ion-icon name="location" class="central-dot"></ion-icon>
+        </div>
+      </div>
+
+      <div class="hud-center">
+        <h2 class="target-name">{{ mosque.name }}</h2>
+        <div class="telemetry-row">
+          <div class="tel-item">
+            <span class="label">{{ 'RADAR_PAGE.RANGE' | translate }}</span>
+            <span class="value cyan-text">{{ mosque.distance }}</span>
+          </div>
+          <div class="tel-item">
+            <span class="label">{{ 'RADAR_PAGE.STATUS' | translate }}</span>
+            <span class="value green-text">{{ 'RADAR_PAGE.STATUS_ACCESSIBLE' | translate }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-right">
+        <div class="hud-action-btn">
+          <ion-icon name="arrow-redo-outline"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && mosqueList.length === 0" class="hud-empty">
+    <div class="alert-box">
+      <ion-icon name="thunderstorm-outline"></ion-icon>
+    </div>
+    <h2>{{ 'RADAR_PAGE.SIGNAL_LOST' | translate }}</h2>
+    <p>{{ 'RADAR_PAGE.NO_DATA_FOUND' | translate }}</p>
+    <button class="hud-retry-btn" (click)="loadNearbyMosques()">
+      {{ 'RADAR_PAGE.RESCAN' | translate }}
+    </button>
+  </div>
+
+</ion-content>

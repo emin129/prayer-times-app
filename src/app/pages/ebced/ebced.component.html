@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'EBCED_PAGE.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ebced-header-card">
+    <div class="result-circle" [class.has-value]="totalValue > 0">
+      <span class="value-label">{{ 'EBCED_PAGE.TOTAL_VALUE' | translate }}</span>
+      <h1 class="total-number">{{ totalValue }}</h1>
+    </div>
+
+    <div class="input-area">
+      <ion-item lines="none" class="custom-input-item">
+        <ion-input
+          [(ngModel)]="inputText"
+          (ionInput)="calculateEbced()"
+          [placeholder]="'EBCED_PAGE.PLACEHOLDER' | translate"
+          dir="auto"
+          class="main-input"
+          [clearInput]="true">
+        </ion-input>
+      </ion-item>
+      <p class="helper-text">{{ 'EBCED_PAGE.HELPER_TEXT' | translate }}</p>
+    </div>
+  </div>
+
+  <div class="analysis-section" *ngIf="charAnalysis.length > 0">
+    <div class="section-title">{{ 'EBCED_PAGE.ANALYSIS_TITLE' | translate }}</div>
+    <div class="analysis-grid">
+      <div class="char-pill" *ngFor="let item of charAnalysis">
+        <span class="char">{{ item.char }}</span>
+        <span class="val">{{ item.val }}</span>
+      </div>
+    </div>
+
+    <ion-button expand="block" fill="clear" color="danger" (click)="temizle()" class="clear-btn">
+      <ion-icon name="trash-outline" slot="start"></ion-icon> {{ 'EBCED_PAGE.CLEAR' | translate }}
+    </ion-button>
+  </div>
+
+  <div class="info-section" *ngIf="charAnalysis.length === 0">
+    <div class="info-card">
+      <ion-icon name="color-wand-outline" class="info-icon"></ion-icon>
+      <h3>{{ 'EBCED_PAGE.INFO_TITLE' | translate }}</h3>
+      <p>{{ 'EBCED_PAGE.INFO_TEXT' | translate }}</p>
+    </div>
+  </div>
+</ion-content>

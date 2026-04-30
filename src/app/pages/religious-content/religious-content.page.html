@@ -1,0 +1,117 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/apps" color="light" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="page-title">{{ pageTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ambient-bg"></div>
+
+  <div class="main-container">
+
+    <div class="esma-grid" *ngIf="contentId === 'esmaul-husna' && items">
+      <div class="glass-card esma-card" *ngFor="let item of items; let i = index">
+        <div class="card-header">
+          <span class="esma-id">#{{ item.id }}</span>
+        </div>
+        <div class="card-content">
+          <div class="arabic-container">
+            <p class="arabic-text">{{ item.arabic }}</p>
+          </div>
+          <div class="info-container">
+            <h2 class="esma-name">{{ item.name }}</h2>
+            <p class="esma-meaning">{{ item.meaning | translate }}</p>
+          </div>
+        </div>
+        <div class="card-footer" *ngIf="item.count">
+          <ion-icon name="finger-print-outline"></ion-icon>
+          <small>{{ 'DYNAMIC_PAGE.ESMA_COUNT' | translate: { count: item.count } }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-list" *ngIf="contentId === 'holy-days' && items">
+      <div class="timeline-item" *ngFor="let item of items"
+           [ngClass]="{'is-active': isUpcoming(item.date)}">
+        <div class="timeline-left">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+        <div class="timeline-content glass-card">
+          <div class="card-header">
+            <span class="date">{{ item.date }}</span>
+            <span class="status-badge" *ngIf="isUpcoming(item.date)">{{ 'DYNAMIC_PAGE.UPCOMING' | translate }}</span>
+          </div>
+          <h3 class="holiday-name">{{ item.name | translate }}</h3>
+          <p class="holiday-desc">{{ item.description | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="imsakiye-list" *ngIf="contentId === 'imsakiye' && items">
+      <div class="glass-card location-badge">
+         <ion-icon name="location-sharp"></ion-icon>
+         <span>{{ 'DYNAMIC_PAGE.LOCATION_TIME_ALERT' | translate }}</span>
+      </div>
+
+      <div class="imsakiye-scroll-container">
+        <div class="glass-card day-row" *ngFor="let day of items">
+          <div class="day-header">
+            <span class="tarih-text">{{ day.tarih }}</span>
+            <span class="hicri-text">{{ day.hicri }}</span>
+          </div>
+          <div class="vakit-grid-mini">
+            <div class="vakit-box" *ngFor="let v of day.vakitler" [class.is-iftar]="v.label === 'Akşam'">
+              <span class="v-label">{{ v.label | translate }}</span>
+              <span class="v-time">{{ v.time }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="converter-container" *ngIf="contentId === 'converter'">
+      <div class="glass-card converter-card">
+        <div class="input-section">
+          <p class="section-label">{{ 'DYNAMIC_PAGE.SELECT_GREGORIAN' | translate }}</p>
+          <div class="date-picker-wrapper">
+            <ion-datetime
+              presentation="date"
+              [(ngModel)]="selectedDate"
+              (ionChange)="convert()"
+              class="custom-datetime">
+            </ion-datetime>
+          </div>
+        </div>
+
+        <div class="divider">
+          <div class="line"></div>
+          <ion-icon name="swap-vertical"></ion-icon>
+          <div class="line"></div>
+        </div>
+
+        <div class="result-section">
+          <p class="section-label">{{ 'DYNAMIC_PAGE.HIJRI_RESULT' | translate }}</p>
+          <div class="hicri-box">
+            <ion-icon name="moon"></ion-icon>
+            <h2 class="hicri-date">{{ convertedHicri }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card info-box">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <p>{{ 'DYNAMIC_PAGE.CALCULATION_INFO' | translate }}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="empty-state" *ngIf="!items && contentId !== 'converter'">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+    <p>{{ 'DYNAMIC_PAGE.PREPARING_INFO' | translate }}</p>
+  </div>
+</ion-content>

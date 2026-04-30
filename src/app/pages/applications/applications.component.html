@@ -1,0 +1,129 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>{{ 'APPLICATIONS_TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/settings']">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ambient-bg"></div>
+
+  <div class="main-container">
+    <section class="app-section">
+      <h3 class="section-title">{{ 'BASIC_TOOLS' | translate }}</h3>
+      <div class="app-grid">
+        <div class="app-card ai-special" (click)="askAI()" [routerLink]="['/islam-ai']">
+          <div class="icon-wrapper glass-indigo">
+            <ion-icon name="sparkles-outline"></ion-icon>
+          </div>
+          <span class="app-name">{{ 'ISLAM_AI' | translate }}</span>
+        </div>
+
+        <div class="app-card" [routerLink]="['/zikirmatik']">
+          <div class="icon-wrapper glass-blue"><ion-icon name="finger-print"></ion-icon></div>
+          <span class="app-name">{{ 'ZIKIRMATIK' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/qibla']">
+          <div class="icon-wrapper glass-gold"><ion-icon name="compass"></ion-icon></div>
+          <span class="app-name">{{ 'QIBLA' | translate }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <h3 class="section-title">{{ 'VAKITLER_ZIKIR' | translate }}</h3>
+      <div class="app-grid">
+        <div class="app-card" [routerLink]="['/reminder']">
+          <div class="icon-wrapper glass-orange"><ion-icon name="notifications-outline"></ion-icon></div>
+          <span class="app-name">{{ 'REMINDER' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/religious-detail', 'esmaul-husna']">
+          <div class="icon-wrapper glass-amber"><ion-icon name="sparkles-outline"></ion-icon></div>
+          <span class="app-name">{{ 'ESMAUL_HUSNA' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/religious-detail', 'holy-days']">
+          <div class="icon-wrapper glass-green"><ion-icon name="calendar-clear-outline"></ion-icon></div>
+          <span class="app-name">{{ 'HOLY_DAYS' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/religious-detail', 'imsakiye']">
+          <div class="icon-wrapper glass-blue"><ion-icon name="time-outline"></ion-icon></div>
+          <span class="app-name">{{ 'IMSAKIYE' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/converter']">
+          <div class="icon-wrapper glass-gold"><ion-icon name="swap-horizontal-outline"></ion-icon></div>
+          <span class="app-name">{{ 'CONVERTER' | translate }}</span>
+        </div>
+        <div class="app-card" (click)="openBoykot()">
+          <div class="icon-wrapper glass-red"><ion-icon name="ban"></ion-icon></div>
+          <span class="app-name">{{ 'BOYKOT' | translate }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <h3 class="section-title">{{ 'LIBRARY_BROADCAST' | translate }}</h3>
+      <div class="app-grid">
+        <div class="app-card" [routerLink]="['/library-detail', 'kuran']">
+          <div class="icon-wrapper glass-teal"><ion-icon name="book"></ion-icon></div>
+          <span class="app-name">{{ 'KURAN' | translate }}</span>
+        </div>
+        <div class="app-card" (click)="openLive()">
+          <div class="icon-wrapper glass-red"><ion-icon name="videocam-Outline"></ion-icon></div>
+          <span class="app-name">{{ 'KABE_CANLI' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/library-detail','cevşen']">
+          <div class="icon-wrapper glass-orange"><ion-icon name="book"></ion-icon></div>
+          <span class="app-name">{{ 'CEVSEN' | translate }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <h3 class="section-title">{{ 'APP_OTHER' | translate }}</h3>
+      <div class="app-grid">
+        <div class="app-card" [routerLink]="['/ebced']">
+          <div class="icon-wrapper glass-purple"><ion-icon name="calculator"></ion-icon></div>
+          <span class="app-name">{{ 'EBCED' | translate }}</span>
+        </div>
+
+        <div class="app-card" [routerLink]="['/settings']">
+          <div class="icon-wrapper glass-silver"><ion-icon name="settings-outline"></ion-icon></div>
+          <span class="app-name">{{ 'SETTINGS_TITLE' | translate }}</span>
+        </div>
+
+        <div class="app-card" [routerLink]="['/settings']">
+          <div class="icon-wrapper glass-red"><ion-icon name="megaphone-outline"></ion-icon></div>
+          <span class="app-name">{{ 'REMOVE_ADS' | translate }}</span>
+        </div>
+
+        <div class="app-card" [routerLink]="['/tracing']">
+          <div class="icon-wrapper glass-blue">
+            <ion-icon name="layers-outline"></ion-icon>
+          </div>
+          <span class="app-name">{{ 'KAZA_NAMAZI' | translate }}</span>
+        </div>
+
+        <div class="app-card" [routerLink]="['/dream-interpretation']">
+          <div class="icon-wrapper glass-violet"><ion-icon name="cloud-outline"></ion-icon></div>
+          <span class="app-name">{{ 'DREAM_TAB' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/tefeul']">
+          <div class="icon-wrapper glass-red"><ion-icon name="intellectual-outline"></ion-icon></div>
+          <span class="app-name">{{ 'TEFEUL' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/radio']">
+          <div class="icon-wrapper glass-green"><ion-icon name="radio-outline"></ion-icon></div>
+          <span class="app-name">{{ 'RADYO' | translate }}</span>
+        </div>
+        <div class="app-card" [routerLink]="['/mosque']">
+          <div class="icon-wrapper glass-blue"><ion-icon name="scan-outline"></ion-icon></div>
+          <span class="app-name">{{ 'YAKINDAKI_CAMILER' | translate }}</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</ion-content>

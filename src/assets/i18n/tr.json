@@ -1,0 +1,315 @@
+{
+  "SETTINGS_TITLE": "Ayarlar",
+  "GENERAL_SETTINGS": "GENEL AYARLAR",
+  "LANGUAGE_SECTION": "DİL AYARLARI",
+  "SELECT_LANGUAGE": "Uygulama Dili",
+  "APPEARANCE_SECTION": "GÖRÜNÜM",
+  "DARK_MODE": "Karanlık Mod",
+  "PRAYER_NOTIFICATIONS": "NAMAZ VAKTİ BİLDİRİMLERİ",
+  "PRE_NOTIFICATION": "VAKİT ÖNCESİ HATIRLAT",
+  "MINUTES": "dk önce",
+  "OFF": "Kapalı",
+  "QIBLA": "Kıble Pusulası",
+  "ACCESSIBILITY_SECTION": "ERİŞİLEBİLİRLİK",
+  "AUTO_LOCATION": "Otomatik Konum (GPS)",
+  "SEARCHING_SATELLITE": "Uydu aranıyor...",
+  "LOCATION_ACTIVE": "Konum aktif, vakitler güncellendi.",
+  "ACTIVE": "Şu an aktif",
+  "STATIC_LOCATION": "Sabit Konum",
+  "SOUND_CONTROL": "Ses Kontrolü",
+  "TEST_NOW": "ŞİMDİ TEST ET",
+  "PRAYER_TIMES_TITLE": "NAMAZ VAKİTLERİ",
+  "NEXT_PRAYER": "Sıradaki Ezan",
+  "TIME_REMAINING": "Kalan Süre",
+  "HOME": "Ana Sayfa",
+  "ZIKIRMATIK": "Zikirmatik",
+  "APPLICATIONS": "Uygulamalar",
+  "LIBRARY": "Kütüphane",
+  "DREAM_TAB": "Rüya Tabiri",
+  "DREAM": "Rüyalar",
+  "ISLAM_AI": "IslamAI",
+  "VERSE_OF_THE_DAY": "GÜNÜN AYETİ",
+  "HADITH_OF_THE_DAY": "GÜNÜN HADİSİ",
+  "NOTIFICATION_TITLE": "{{prayer}} Vakti",
+  "NOTIFICATION_BODY": "{{prayer}} ezanı okunuyor...",
+  "PRE_NOTIFICATION_BODY": "{{prayer}} vaktine {{min}} dakika kaldı.",
+
+  "QUICK_ACTIONS": {
+    "TEFEUL": "Tefeül",
+    "RADIO": "Radyo",
+    "ZIKIRMATIK": "Zikirmatik"
+  },
+
+  "WISDOM_OF_THE_DAY": "GÜNÜN HİKMETİ",
+  "PRAYER_OF_THE_TIME": "VAKTİN DUASI",
+  "SHARE": "Paylaş",
+
+  "SOUNDS": {
+    "EZAN": "Kabe Ezanı",
+    "EZAN_DESC": "Mescid-i Haram usulü yanık bir ezan.",
+    "MEDINE_EZAN": "Medine Ezanı",
+    "MEDINE_EZAN_DESC": "Mescid-i Nebevi'nin huzur veren tınısı.",
+    "AYASOFYA_EZAN": "Ayasofya Ezanı",
+    "AYASOFYA_EZAN_DESC": "İstanbul'un kalbinden gelen makamlı ezan."
+  },
+
+  "SETTINGS": {
+    "DEFAULT_CITY": "Varsayılan Şehir",
+    "SELECT_CITY": "Şehir Seçin",
+    "CANCEL": "Vazgeç",
+    "LOCATION_HELP": "GPS kapalıyken bu şehir baz alınır."
+  },
+
+  "DREAM_SECTION": {
+    "TITLE": "Rüya Tabiri",
+    "SUBTITLE": "Rüyanı Anlat, Hayrolsun...",
+    "PLACEHOLDER": "Dün gece rüyamda...",
+    "INTERPRET_BTN": "Hayra Yor ✨",
+    "INTERPRETATION_HEADER": "Rüyanın Tabiri",
+    "LOADING_MSG": "Rüyan analiz ediliyor...",
+    "CLEAR_PAGE": "Sayfayı Temizle",
+    "ERROR_MSG": "Bağlantı hatası! Lütfen tekrar dene.",
+    "EMPTY_RESULT": "Rüya derinlerde kayboldu, bir daha anlatsana."
+  },
+  "ZIKIR_SUBHANALLAH_AD": "Sübhanallah",
+  "ZIKIR_SUBHANALLAH_FAYDA": "Allah'ı noksan sıfatlardan tenzih eder.",
+  "ZIKIR_ELHAMDULILLAH_AD": "Elhamdülillah",
+  "ZIKIR_ELHAMDULILLAH_FAYDA": "Allah'a şükür ve hamd etmektir.",
+  "PRAYERS": {
+    "Fajr": "İmsak",
+    "Sunrise": "Güneş",
+    "Dhuhr": "Öğle",
+    "Asr": "İkindi",
+    "Maghrib": "Akşam",
+    "Isha": "Yatsı"
+  },
+  "ABOUT_SECTION": "HAKKINDA",
+  "ABOUT_APP": "Uygulama Hakkında",
+  "DEVELOPER": "GELİŞTİRİCİ",
+  "DEVELOPER_NAME": "Mehmet Emin Ejderha",
+  "DEVELOPER_LOCATION": "Antalya / Türkiye",
+  "APP_DESCRIPTION_TITLE": "Uygulama Açıklaması",
+  "APP_DESCRIPTION_TEXT": "Ezan Vakti, modern arayüzü ve doğru vakit hesaplamalarıyla ibadetlerinizi takip etmenize yardımcı olur.",
+  "APP_LONG_DESCRIPTION": "Teknolojiyi maneviyatla buluşturan bu dijital rehber, kalbinizi huzura, vaktinizi berekete ulaştırmak için tasarlandı. Sadece bir takvim değil; kadim arşivlerin kapısını aralayan hikmetli sözler, tefeül havuzu ve derinlikli içerikleriyle yolculuğunuza eşlik eden bir dosttur. Vaktin kıymetini bilenler için, vaktin sahibiyle bağ kurmanın en estetik yolu.",
+  "FOLLOW_US": "Bizi Takip Edin",
+  "COPYRIGHT": "© 2026 Tüm Hakları Saklıdır.",
+  "CANCEL": "İptal",
+  "APPLICATIONS_TITLE": "Uygulamalar",
+  "BASIC_TOOLS": "Temel Araçlar",
+  "VAKITLER_ZIKIR": "Vakitler & Zikir",
+  "LIBRARY_BROADCAST": "Kütüphane & Yayın",
+  "APP_OTHER": "Uygulama & Diğer",
+  "REMOVE_ADS": "Reklamı kaldır",
+  "KAZA_NAMAZI": "Kaza Namazı",
+  "YAKINDAKI_CAMILER": "Yakındaki Camiler",
+  "BOYKOT": "Boykot",
+  "KABE_CANLI": "Kabe Canlı",
+  "RADYO": "Radyo",
+  "EBCED": "Ebced",
+  "TEFEUL": "Tefeül",
+  "ESMAUL_HUSNA": "Esmaül Hüsna",
+  "HOLY_DAYS": "Dini Günler",
+  "IMSAKIYE": "İmsakiye",
+  "CONVERTER": "Hicri-Miladi Çevirici",
+  "CEVSEN": "Cevşen",
+  "KURAN": "Kuran",
+  "REMINDER":"Hatırlatıcı",
+  "PREMIUM_SUBTITLE": "Premium'a geç, uygulamanın tadını çıkar.",
+  "EZAN_SOUND_SELECTION": "Ezan Sesi Seçimi",
+  "MUTE": "Sustur",
+  "UNMUTE": "Aç",
+  "MAKAM": "Makam",
+  "SILENT": "Sessiz",
+  "PRE_PRAYER_REMINDER": "Vakit Öncesi Hatırlatma",
+  "QUIZ":"Yarışma",
+  "DAILY_BABY_NAMES": "Günün Bebek İsimleri",
+  "SHARE": "Paylaş",
+
+
+  "CONVERTER_PAGE": {
+    "GREGORIAN": "MİLADİ",
+    "HIJRI": "HİCRİ",
+    "SELECT_GREGORIAN": "MİLADİ TARİHİ SEÇİN",
+    "RETURN_TODAY": "BUGÜNE DÖN",
+    "ENTER_HIJRI": "HİCRİ TARİHİ GİRİN",
+    "DAY": "GÜN",
+    "MONTH": "AY",
+    "YEAR": "YIL",
+    "CONVERTED_DATE": "DÖNÜŞTÜRÜLEN TARİH",
+    "DATABASE_ACTIVE": "Umm al-Qura Veritabanı Aktif"
+  },
+
+  "DREAM_PAGE": {
+    "TITLE": "RÜYA YORUMLAMA",
+    "PREMIUM_RIGHTS_REMAINING": "Kalan Premium Hakkınız: {{ count }}",
+    "PREMIUM_LIMIT_REACHED": "Premium limitiniz doldu, yarın yine bekleriz!",
+    "FREE_RIGHTS_REMAINING": "Kalan Rüya Hakkınız: {{ count }}",
+    "EARN_RIGHT_BY_AD": "Reklam İzleyerek Hak Kazanabilirsiniz!",
+    "DAILY_LIMIT_REACHED": "Bugünlük Haklarınız Dolmuştur.",
+    "TELL_YOUR_DREAM": "RÜYANIZI ANLATIN",
+    "PLACEHOLDER": "Anlatmaya başlayın...",
+    "START_INTERPRET": "TABİRİ BAŞLAT",
+    "EARN_AND_START": "HAK KAZAN VE BAŞLAT",
+    "LOADING_MSG": "RÜYANIZ YORUMLANIYOR...",
+    "RESULT_HEADER": "RÜYA TABİRİ",
+    "TELL_ANOTHER_DREAM": "Başka bir rüya anlat"
+  },
+
+  "EBCED_PAGE": {
+    "TITLE": "Ebced Hesabı",
+    "TOTAL_VALUE": "TOPLAM DEĞER",
+    "PLACEHOLDER": "İsim veya kelime yazınız...",
+    "HELPER_TEXT": "Latin ve Arapça karakterler desteklenir.",
+    "ANALYSIS_TITLE": "HARF ANALİZİ",
+    "CLEAR": "TEMİZLE",
+    "INFO_TITLE": "Ebced'in Sırrı",
+    "INFO_TEXT": "İsimlerin ve kelimelerin sayısal değerlerini keşfedin. Her harf, kadim bir mana ve sayı taşır."
+  },
+
+  "LIBRARY_PAGE": {
+    "COLLECTION_LABEL": "ÖZEL KOLEKSİYON",
+    "COLLECTION_TITLE": "Dijital Arşiv",
+    "BOOKS": {
+      "CEVSEN_TITLE": "Cevşen-ül Kebir",
+      "CEVSEN_SUBTITLE": "Zırhların En Güçlüsü",
+      "KURAN_TITLE": "Kur'an-ı Kerim",
+      "KURAN_SUBTITLE": "İlahi Kelam"
+    }
+  },
+
+  "READING_PAGE": {
+    "CHAPTER_COUNT": "{{ count }} Bölüm",
+    "CONTENTS": "İçindekiler",
+    "RECORD_COUNT": "{{ count }} Kayıt"
+  },
+
+  "RADAR_PAGE": {
+    "TITLE": "SİSTEM RADARI",
+    "SCANNING_TITLE": "FREKANS TARANIYOR",
+    "SCANNING_SUBTITLE": "Çevredeki yapılar analiz ediliyor...",
+    "MAP_ALT": "Harita",
+    "RANGE": "Menzil:",
+    "STATUS": "Durum:",
+    "STATUS_ACCESSIBLE": "Erişilebilir",
+    "SIGNAL_LOST": "SİNYAL KESİLDİ",
+    "NO_DATA_FOUND": "Yakın çevrede aktif bir veri noktası bulunamadı.",
+    "RESCAN": "YENİDEN TARA"
+  },
+
+  "QIBLA_PAGE": {
+    "TITLE": "Kıble Pusulası",
+    "NEAR_MECCA": "Mekke'ye Yakınsın",
+    "TARGET": "Hedef: {{ degree }}°",
+    "ALIGNED": "Tam Kıbledesiniz",
+    "NOT_ALIGNED": "Cihazı Yavaşça Çevirin",
+    "CALIBRATION_HINT": "Hatalıysa telefonu \"8\" çizerek sallayın"
+  },
+
+  "RADIO_PAGE": {
+    "LIVE": "CANLI YAYIN",
+    "SELECT_RADIO": "Radyo Seçiniz",
+    "LOADING": "Yükleniyor...",
+    "AUDIO_ACTIVE": "Ses Yayını Aktif",
+    "SELECT_BELOW": "Dinlemek için aşağıdan seçin",
+    "CHANNEL_LIST": "KANAL LİSTESİ",
+    "DEFAULT_STREAM": "Resmi Yayın Akışı"
+  },
+
+  "DYNAMIC_PAGE": {
+    "ESMA_COUNT": "Zikir: {{ count }}",
+    "UPCOMING": "YAKLAŞIYOR",
+    "LOCATION_TIME_ALERT": "Konumunuza Göre 3 Aylık Vakitler",
+    "SELECT_GREGORIAN": "Miladi Tarih Seçin",
+    "HIJRI_RESULT": "Hicri Karşılığı",
+    "CALCULATION_INFO": "Hesaplamalar Umm al-Qura takvimine göredir.",
+    "PREPARING_INFO": "Bilgiler Hazırlanıyor..."
+  },
+
+  "REMINDER_PAGE": {
+    "NEW_REMINDER": "YENİ HATIRLATICI",
+    "TITLE_PLACEHOLDER": "Hatırlatıcı başlığı...",
+    "PICK": "Seç",
+    "CANCEL": "İptal",
+    "ADD_TO_LIST": "LİSTEYE EKLE",
+    "ACTIVE_REMINDERS": "AKTİF HATIRLATICILAR",
+    "EMPTY_STATE": "Henüz bir hatırlatıcı eklemedin.",
+    "STATUS_ACTIVE": "Bildirim Aktif",
+    "STATUS_MUTED": "Sessize Alındı"
+  },
+
+  "TEFEUL_PAGE": {
+    "TITLE": "Gönül Tefeülü",
+    "INTENT_TITLE": "Niyet Et ve Tıkla",
+    "INTENT_SUBTITLE": "Gönlüne bir ferahlık, yoluna bir ışık...",
+    "SHARE": "PAYLAŞ",
+    "REFRESH": "YENİLE"
+  },
+
+  "KAZA_PAGE": {
+    "TITLE": "Namaz & Kaza Takibi",
+    "GREETING": "Selamünaleyküm! 👋",
+    "GREETING_SUB": "Rabbim kabul etsin, bugün kaçta kaç gidiyoruz?",
+    "NOTIFY_ON": "Hatırlatıcı Açık",
+    "NOTIFY_OFF": "Sessiz",
+    "DAILY_TITLE": "Bugünün Eda Namazları",
+    "DAILY_HINT": "İşaretlenmeyenler gece yarısı kazaya aktarılır.",
+    "DEBTS_TITLE": "Kaza Borçların",
+    "UNIT_TIMES": "vakit",
+    "I_PRAYED": "KILDIM"
+  },
+
+  "ZIKIR_PAGE": {
+    "HEADER_SUB": "MANEVİ REÇETE",
+    "INSTRUCTION": "Zikretmek için butona dokun"
+  },
+  "QUIZ_PAGE": {
+    "LOBBY_TITLE": "Yarışma Lobisi",
+    "JOIN_ROOM": "Odaya Katıl",
+    "CREATE_ROOM": "Oda Kur",
+    "USERNAME": "Kullanıcı Adı",
+    "ROOM_CODE": "Oda Kodu",
+    "ROOM_NAME": "Oda İsmi",
+    "JOIN_BTN": "Katıl",
+    "CREATE_BTN": "Odayı Kur",
+    "WAITING_PLAYERS": "Oyuncular Bekleniyor",
+    "READY": "Hazır",
+    "WAITING": "Bekliyor",
+    "I_AM_READY": "Hazırım!",
+    "I_AM_NOT_READY": "Hazır Değilim",
+    "START_GAME": "Yarışmayı Başlat",
+    "FOUNDER": "Kurucu",
+    "SECONDS": "sn.",
+    "ENTER_NAME_ALERT": "Lütfen önce adınızı girin!",
+    "ROOM_NOT_FOUND": "Böyle bir oda bulunamadı!",
+    "ROOM_FULL": "Bu oda maalesef dolmuş!",
+    "ALREADY_USED_NAME": "Bu isim odada zaten kullanılıyor!",
+    "ROOM_LOCKED": "Oda Şifreli 🔒",
+    "WRONG_PASSWORD": "Hatalı şifre girdiniz!",
+    "TIME_REMAINING": "Kalan Süre",
+    "NEXT_QUESTION": "Sıradaki Soru",
+    "CORRECT_ANSWER": "Doğru Cevap!",
+    "QUESTION": "Soru",
+    "YOUR_SCORE": "Puanın",
+    "WAITING_TIME": "Sürenin Bitmesi Bekleniyor...",
+    "FINISH_TITLE": "Yarışma Bitti!",
+    "FINISH_SUB": "Harika bir mücadeleydi, tebrikler!",
+    "POINTS": "Puan",
+    "OTHER_RANKS": "Diğer Sıralamalar",
+    "UNNAMED_ROOM": "İsimsiz Oda",
+    "SELECT_SUBJECT": "Konu Seçiniz",
+    "PASSWORD_OPTIONAL": "Şifre (Opsiyonel)",
+    "MAX_PLAYERS": "Maks. Oyuncu",
+    "QUESTION_COUNT": "Soru Sayısı",
+    "TIME_PER_QUESTION": "Soru Başı Süre"
+  },
+  "CATEGORIES": {
+    "ALL": "Karışık / Her Telden",
+    "GENERAL": "Genel Kültür",
+    "COMPUTER": "Bilgisayar Bilimi",
+    "SPORTS": "Spor",
+    "HISTORY": "Tarih",
+    "GEOGRAPHY": "Coğrafya",
+    "MYTHOLOGY": "Mitoloji",
+    "VIDEO_GAMES": "Video Oyunları"
+  }
+}

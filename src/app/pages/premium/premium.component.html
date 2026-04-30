@@ -1,0 +1,22 @@
+<ion-content class="ion-padding">
+  <div class="premium-header">
+    <h2>ezanCep Premium</h2>
+    <p>Reklamları tamamen kaldırın, ibadetinize odaklanın.</p>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Aylık Paket</ion-card-title>
+      <ion-card-subtitle>{{ aylikFiyat }} / ay</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button expand="block" color="success" (click)="aylikSatinAl()">Hemen Katıl</ion-button>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Yıllık Paket</ion-card-title>
+      <ion-card-subtitle>{{ yillikFiyat }} / yıl</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button expand="block" color="success" (click)="yillikSatinAl()">Hemen Katıl</ion-button>
+  </ion-card>
+</ion-content>

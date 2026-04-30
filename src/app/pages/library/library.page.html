@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true" class="library-museum-wrapper">
+
+  <div class="ambient-spotlight"></div>
+
+  <div class="museum-container">
+    <header class="museum-header animate__animated animate__fadeIn">
+      <span class="collection-label">{{ 'LIBRARY_PAGE.COLLECTION_LABEL' | translate }}</span>
+      <h1 class="collection-title">{{ 'LIBRARY_PAGE.COLLECTION_TITLE' | translate }}</h1>
+    </header>
+
+    <div class="book-exhibition">
+      <div class="book-card-3d animate__animated animate__zoomIn"
+           *ngFor="let category of libraryCategories; let i = index"
+           (click)="goToDetail(category.id)"
+           [style.animation-delay]="i * 0.12 + 's'">
+
+        <div class="book-physical-engine" [ngClass]="category.id">
+          <div class="book-spine">
+            <div class="spine-text">{{ category.title | translate }}</div>
+            <div class="spine-decoration"></div>
+          </div>
+
+          <div class="book-cover-main">
+            <div class="leather-texture"></div>
+            <div class="gold-ornament-border"></div>
+
+            <div class="cover-inner-content">
+              <div class="emblem-circle">
+                <ion-icon [name]="category.icon"></ion-icon>
+              </div>
+              <h2 class="title-gold">{{ category.title | translate }}</h2>
+              <p class="subtitle-faded">{{ category.subtitle | translate }}</p>
+            </div>
+
+            <div class="gloss-shine"></div>
+          </div>
+
+          <div class="book-pages-block"></div>
+        </div>
+
+        <div class="floor-shadow"></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

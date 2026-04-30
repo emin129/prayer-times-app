@@ -1,0 +1,84 @@
+<ion-content class="reminder-page" [fullscreen]="true">
+  <div class="blob-top"></div>
+  <div class="blob-bottom"></div>
+
+  <div class="main-container">
+
+    <div class="glass-card add-reminder-card">
+      <div class="card-title">{{ 'REMINDER_PAGE.NEW_REMINDER' | translate }}</div>
+
+      <div class="input-group">
+        <div class="input-item">
+          <ion-icon name="notifications-outline"></ion-icon>
+          <ion-input
+            [placeholder]="'REMINDER_PAGE.TITLE_PLACEHOLDER' | translate"
+            [(ngModel)]="newReminderTitle"
+            maxlength="30">
+          </ion-input>
+        </div>
+
+        <div class="input-item datetime-box">
+          <ion-icon name="time-outline"></ion-icon>
+          <ion-datetime-button datetime="reminder-picker"></ion-datetime-button>
+
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime
+                id="reminder-picker"
+                presentation="time"
+                [(ngModel)]="newReminderTime"
+                [showDefaultButtons]="true"
+                [doneText]="'REMINDER_PAGE.PICK' | translate"
+                [cancelText]="'REMINDER_PAGE.CANCEL' | translate">
+              </ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </div>
+      </div>
+
+      <ion-button expand="block" class="add-btn" (click)="addReminder()">
+        {{ 'REMINDER_PAGE.ADD_TO_LIST' | translate }}
+        <ion-icon name="add-circle" slot="end"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="list-container">
+      <div class="list-header">
+        <span>{{ 'REMINDER_PAGE.ACTIVE_REMINDERS' | translate }}</span>
+        <div class="badge">{{ settings.customReminders.length }}</div>
+      </div>
+
+      <div *ngIf="settings.customReminders.length === 0" class="empty-state">
+        <ion-icon name="notifications-off-outline"></ion-icon>
+        <p>{{ 'REMINDER_PAGE.EMPTY_STATE' | translate }}</p>
+      </div>
+
+      <div *ngFor="let reminder of settings.customReminders"
+           class="reminder-item"
+           [class.disabled]="!reminder.isActive">
+
+        <div class="item-left">
+          <div class="time-circle">{{ reminder.time }}</div>
+          <div class="text-content">
+            <h3>{{ reminder.title }}</h3>
+            <p>{{ (reminder.isActive ? 'REMINDER_PAGE.STATUS_ACTIVE' : 'REMINDER_PAGE.STATUS_MUTED') | translate }}</p>
+          </div>
+        </div>
+
+        <div class="item-right">
+          <ion-toggle
+            [checked]="reminder.isActive"
+            (ionChange)="toggleReminder(reminder)"
+            mode="ios"
+            color="success">
+          </ion-toggle>
+
+          <ion-button fill="clear" color="danger" (click)="deleteReminder(reminder.id)">
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

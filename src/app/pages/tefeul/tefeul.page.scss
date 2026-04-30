@@ -1,0 +1,124 @@
+ion-content {
+  --background: #f8f9fa; // Hafif kırık beyaz, göz yormaz
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tefeul-container {
+  padding-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Kapalı Kutu/Zarf Tasarımı */
+.envelope-box {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px dashed #d4af37; // Ebced ve dini temaya uygun altın rengi
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 90%;
+  max-width: 350px;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  .main-icon {
+    font-size: 64px;
+    color: #2e7d32; // Huzur veren yeşil
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  p {
+    color: #666;
+    font-size: 0.9rem;
+  }
+}
+
+/* Açılmış Nasihat Kartı */
+.nasihat-card {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 25px;
+  background: #ffffff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border-left: 5px solid #d4af37;
+  overflow: hidden;
+  margin: 0 auto;
+
+  ion-card-content {
+    padding: 30px 20px;
+  }
+
+  .quote-mark {
+    font-size: 60px;
+    color: #d4af37;
+    height: 30px;
+    line-height: 60px;
+    margin-bottom: 10px;
+    opacity: 0.3;
+    font-family: serif;
+  }
+
+  .nasihat-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .nasihat-source {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    text-align: right;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Buton Alanı */
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+
+  ion-button {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+}
+
+/* Giriş Animasyonu (Animate.css benzeri basit bir zoom) */
+.animate__zoomIn {
+  animation: zoomIn 0.4s ease-out;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}

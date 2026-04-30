@@ -1,0 +1,318 @@
+{
+  "SETTINGS_TITLE": "Settings",
+  "GENERAL_SETTINGS": "GENERAL SETTINGS",
+  "LANGUAGE_SECTION": "LANGUAGE SETTINGS",
+  "SELECT_LANGUAGE": "App Language",
+  "APPEARANCE_SECTION": "APPEARANCE",
+  "DARK_MODE": "Dark Mode",
+  "PRAYER_NOTIFICATIONS": "PRAYER TIME NOTIFICATIONS",
+  "PRE_NOTIFICATION": "REMIND BEFORE TIME",
+  "MINUTES": "min before",
+  "OFF": "Off",
+  "QIBLA": "Qibla Compass",
+  "ACCESSIBILITY_SECTION": "ACCESSIBILITY",
+  "AUTO_LOCATION": "Auto Location (GPS)",
+  "SEARCHING_SATELLITE": "Searching for satellite...",
+  "LOCATION_ACTIVE": "Location active, times updated.",
+  "ACTIVE": "Currently active",
+  "STATIC_LOCATION": "Static Location",
+  "SOUND_CONTROL": "Sound Control",
+  "TEST_NOW": "TEST NOW",
+  "PRAYER_TIMES_TITLE": "PRAYER TIMES",
+  "NEXT_PRAYER": "Next Azan",
+  "TIME_REMAINING": "Time Remaining",
+  "HOME": "Home",
+  "ZIKIRMATIK": "Zikirmatik",
+  "APPLICATIONS": "Applications",
+  "LIBRARY": "Library",
+  "DREAM_TAB": "Dream Interpretation",
+  "DREAM": "Dreams",
+  "ISLAM_AI": "IslamAI",
+  "VERSE_OF_THE_DAY": "VERSE OF THE DAY",
+  "HADITH_OF_THE_DAY": "HADITH OF THE DAY",
+  "NOTIFICATION_TITLE": "{{prayer}} Time",
+  "NOTIFICATION_BODY": "{{prayer}} azan is being recited...",
+  "PRE_NOTIFICATION_BODY": "{{min}} minutes left until {{prayer}} time.",
+
+  "QUICK_ACTIONS": {
+    "TEFEUL": "Tefeul",
+    "RADIO": "Radio",
+    "ZIKIRMATIK": "Zikirmatik"
+  },
+
+  "WISDOM_OF_THE_DAY": "WISDOM OF THE DAY",
+  "PRAYER_OF_THE_TIME": "PRAYER OF THE TIME",
+  "SHARE": "Share",
+
+  "SOUNDS": {
+    "EZAN": "Kaaba Azan",
+    "EZAN_DESC": "Masjid al-Haram style emotional azan.",
+    "MEDINE_EZAN": "Madinah Azan",
+    "MEDINE_EZAN_DESC": "The peaceful tune of Masjid an-Nabawi.",
+    "AYASOFYA_EZAN": "Hagia Sophia Azan",
+    "AYASOFYA_EZAN_DESC": "Melodic azan from the heart of Istanbul."
+  },
+
+  "SETTINGS": {
+    "DEFAULT_CITY": "Default City",
+    "SELECT_CITY": "Select City",
+    "CANCEL": "Cancel",
+    "LOCATION_HELP": "This city is used when GPS is off."
+  },
+
+  "DREAM_SECTION": {
+    "TITLE": "Dream Interpretation",
+    "SUBTITLE": "Tell Your Dream, May It Be Good...",
+    "PLACEHOLDER": "Last night in my dream...",
+    "INTERPRET_BTN": "Interpret Good ✨",
+    "INTERPRETATION_HEADER": "Interpretation of the Dream",
+    "LOADING_MSG": "Your dream is being analyzed...",
+    "CLEAR_PAGE": "Clear Page",
+    "ERROR_MSG": "Connection error! Please try again.",
+    "EMPTY_RESULT": "The dream was lost in the depths, tell it again."
+  },
+  "ZIKIR_SUBHANALLAH_AD": "Subhanallah",
+  "ZIKIR_SUBHANALLAH_FAYDA": "Glorifies Allah above any imperfection.",
+  "ZIKIR_ELHAMDULILLAH_AD": "Alhamdulillah",
+  "ZIKIR_ELHAMDULILLAH_FAYDA": "Praising and giving thanks to Allah.",
+  "PRAYERS": {
+    "Fajr": "Fajr",
+    "Sunrise": "Sunrise",
+    "Dhuhr": "Dhuhr",
+    "Asr": "Asr",
+    "Maghrib": "Maghrib",
+    "Isha": "Isha"
+  },
+  "ABOUT_SECTION": "ABOUT",
+  "ABOUT_APP": "About the App",
+  "DEVELOPER": "DEVELOPER",
+  "DEVELOPER_NAME": "Mehmet Emin Ejderha",
+  "DEVELOPER_LOCATION": "Antalya / Turkey",
+  "APP_DESCRIPTION_TITLE": "App Description",
+  "APP_DESCRIPTION_TEXT": "Ezan Vakti helps you track your prayers with its modern interface and accurate time calculations.",
+  "APP_LONG_DESCRIPTION": "Designed to bring technology and spirituality together, this digital guide aims to bring peace to your heart and abundance to your time. It is not just a calendar; it is a friend accompanying your journey with wise words opening the door to ancient archives, a pool of tefeul, and in-depth content. For those who know the value of time, the most aesthetic way to connect with the owner of time.",
+  "FOLLOW_US": "Follow Us",
+  "COPYRIGHT": "© 2026 All Rights Reserved.",
+  "CANCEL": "Cancel",
+  "APPLICATIONS_TITLE": "Applications",
+  "BASIC_TOOLS": "Basic Tools",
+  "VAKITLER_ZIKIR": "Times & Dhikr",
+  "LIBRARY_BROADCAST": "Library & Broadcast",
+  "APP_OTHER": "App & Other",
+  "REMOVE_ADS": "Remove ads",
+  "KAZA_NAMAZI": "Missed Prayers",
+  "YAKINDAKI_CAMILER": "Mosques Nearby",
+  "BOYKOT": "Boycott",
+  "KABE_CANLI": "Kaaba Live",
+  "RADYO": "Radio",
+  "EBCED": "Ebced",
+  "TEFEUL": "Tefeul",
+  "ESMAUL_HUSNA": "Esmaül Hüsna",
+  "HOLY_DAYS": "Religious Days",
+  "IMSAKIYE": "Imsakiye",
+  "CONVERTER": "Hijri-Gregorian Converter",
+  "CEVSEN": "Cevşen",
+  "KURAN": "Quran",
+  "REMINDER":"Reminder",
+  "PREMIUM_SUBTITLE": "Go Premium, enjoy the app.",
+  "PRAYER_NOTIFICATIONS": "Time Notifications",
+  "EZAN_SOUND_SELECTION": "Azan Sound Selection",
+  "MUTE": "Mute",
+  "UNMUTE": "Unmute",
+  "MAKAM": "Maqam",
+  "SILENT": "Silent",
+  "PRE_PRAYER_REMINDER": "Pre-Prayer Reminder",
+  "QUIZ":"Quiz",
+  "DAILY_BABY_NAMES": "Daily Baby Names",
+  "SHARE": "Share",
+
+
+  "CONVERTER_PAGE": {
+    "GREGORIAN": "GREGORIAN",
+    "HIJRI": "HIJRI",
+    "SELECT_GREGORIAN": "SELECT GREGORIAN DATE",
+    "RETURN_TODAY": "RETURN TO TODAY",
+    "ENTER_HIJRI": "ENTER HIJRI DATE",
+    "DAY": "DAY",
+    "MONTH": "MONTH",
+    "YEAR": "YEAR",
+    "CONVERTED_DATE": "CONVERTED DATE",
+    "DATABASE_ACTIVE": "Umm al-Qura Database Active"
+  },
+
+  "DREAM_PAGE": {
+    "TITLE": "DREAM INTERPRETATION",
+    "PREMIUM_RIGHTS_REMAINING": "Your Remaining Premium Rights: {{ count }}",
+    "PREMIUM_LIMIT_REACHED": "Your premium limit is full, we look forward to seeing you tomorrow!",
+    "FREE_RIGHTS_REMAINING": "Your Remaining Dream Rights: {{ count }}",
+    "EARN_RIGHT_BY_AD": "You Can Earn Rights by Watching Ads!",
+    "DAILY_LIMIT_REACHED": "Your Daily Rights Are Full.",
+    "TELL_YOUR_DREAM": "TELL YOUR DREAM",
+    "PLACEHOLDER": "Start telling...",
+    "START_INTERPRET": "START INTERPRETATION",
+    "EARN_AND_START": "EARN RIGHT AND START",
+    "LOADING_MSG": "YOUR DREAM IS BEING INTERPRETED...",
+    "RESULT_HEADER": "DREAM INTERPRETATION",
+    "TELL_ANOTHER_DREAM": "Tell another dream"
+  },
+
+  "EBCED_PAGE": {
+    "TITLE": "Ebced Calculation",
+    "TOTAL_VALUE": "TOTAL VALUE",
+    "PLACEHOLDER": "Type a name or word...",
+    "HELPER_TEXT": "Latin and Arabic characters are supported.",
+    "ANALYSIS_TITLE": "LETTER ANALYSIS",
+    "CLEAR": "CLEAR",
+    "INFO_TITLE": "The Secret of Ebced",
+    "INFO_TEXT": "Discover the numerical values of names and words. Each letter carries an ancient meaning and number."
+  },
+
+  "LIBRARY_PAGE": {
+    "COLLECTION_LABEL": "SPECIAL COLLECTION",
+    "COLLECTION_TITLE": "Digital Archive",
+    "BOOKS": {
+      "CEVSEN_TITLE": "Jawshan al-Kabir",
+      "CEVSEN_SUBTITLE": "The Strongest Armor",
+      "KURAN_TITLE": "Holy Quran",
+      "KURAN_SUBTITLE": "Divine Word"
+    }
+  },
+
+  "READING_PAGE": {
+    "CHAPTER_COUNT": "{{ count }} Chapters",
+    "CONTENTS": "Contents",
+    "RECORD_COUNT": "{{ count }} Records"
+  },
+
+  "RADAR_PAGE": {
+    "TITLE": "SYSTEM RADAR",
+    "SCANNING_TITLE": "SCANNING FREQUENCY",
+    "SCANNING_SUBTITLE": "Analyzing surrounding structures...",
+    "MAP_ALT": "Map",
+    "RANGE": "Range:",
+    "STATUS": "Status:",
+    "STATUS_ACCESSIBLE": "Accessible",
+    "SIGNAL_LOST": "SIGNAL LOST",
+    "NO_DATA_FOUND": "No active data point found in the immediate vicinity.",
+    "RESCAN": "RESCAN"
+  },
+
+  "QIBLA_PAGE": {
+    "TITLE": "Qibla Compass",
+    "NEAR_MECCA": "You are Near Mecca",
+    "TARGET": "Target: {{ degree }}°",
+    "ALIGNED": "You are Exactly Facing Qibla",
+    "NOT_ALIGNED": "Turn the Device Slowly",
+    "CALIBRATION_HINT": "If incorrect, wave the phone in a \"8\" shape"
+  },
+
+  "RADIO_PAGE": {
+    "LIVE": "LIVE STREAM",
+    "SELECT_RADIO": "Select Radio",
+    "LOADING": "Loading...",
+    "AUDIO_ACTIVE": "Audio Stream Active",
+    "SELECT_BELOW": "Select from below to listen",
+    "CHANNEL_LIST": "CHANNEL LIST",
+    "DEFAULT_STREAM": "Official Stream"
+  },
+
+  "DYNAMIC_PAGE": {
+    "ESMA_COUNT": "Dhikr: {{ count }}",
+    "UPCOMING": "UPCOMING",
+    "LOCATION_TIME_ALERT": "3-Month Times According to Your Location",
+    "SELECT_GREGORIAN": "Select Gregorian Date",
+    "HIJRI_RESULT": "Hijri Equivalent",
+    "CALCULATION_INFO": "Calculations are according to the Umm al-Qura calendar.",
+    "PREPARING_INFO": "Preparing Information..."
+  },
+
+  "REMINDER_PAGE": {
+    "NEW_REMINDER": "NEW REMINDER",
+    "TITLE_PLACEHOLDER": "Reminder title...",
+    "PICK": "Pick",
+    "CANCEL": "Cancel",
+    "ADD_TO_LIST": "ADD TO LIST",
+    "ACTIVE_REMINDERS": "ACTIVE REMINDERS",
+    "EMPTY_STATE": "You haven't added a reminder yet, bro.",
+    "STATUS_ACTIVE": "Notification Active",
+    "STATUS_MUTED": "Muted"
+  },
+
+  "TEFEUL_PAGE": {
+    "TITLE": "Gönül Tefeülü",
+    "INTENT_TITLE": "Make an Intention and Click",
+    "INTENT_SUBTITLE": "A relief for your heart, a light for your path...",
+    "SHARE": "SHARE",
+    "REFRESH": "REFRESH"
+  },
+
+  "KAZA_PAGE": {
+    "TITLE": "Prayer & Missed Tracker",
+    "GREETING": "Assalamu Alaikum! 👋",
+    "GREETING_SUB": "May Allah accept, what is the score today?",
+    "NOTIFY_ON": "Reminder On",
+    "NOTIFY_OFF": "Silent",
+    "DAILY_TITLE": "Today's Prayers",
+    "DAILY_HINT": "Unchecked ones are transferred to missed at midnight.",
+    "DEBTS_TITLE": "Your Missed Prayers",
+    "UNIT_TIMES": "times",
+    "I_PRAYED": "I PRAYED"
+  },
+
+  "ZIKIR_PAGE": {
+    "HEADER_SUB": "SPIRITUAL PRESCRIPTION",
+    "INSTRUCTION": "Tap the button to make dhikr"
+  },
+
+  "QUIZ_PAGE": {
+    "LOBBY_TITLE": "Quiz Lobby",
+    "JOIN_ROOM": "Join Room",
+    "CREATE_ROOM": "Create Room",
+    "USERNAME": "Username",
+    "ROOM_CODE": "Room Code",
+    "ROOM_NAME": "Room Name",
+    "JOIN_BTN": "Join",
+    "CREATE_BTN": "Create Room",
+    "WAITING_PLAYERS": "Waiting for Players",
+    "READY": "Ready",
+    "WAITING": "Waiting",
+    "I_AM_READY": "I'm Ready!",
+    "I_AM_NOT_READY": "I'm Not Ready",
+    "START_GAME": "Start Quiz",
+    "FOUNDER": "Founder",
+    "SECONDS": "sec.",
+    "ENTER_NAME_ALERT": "Please enter your name first!",
+    "ROOM_NOT_FOUND": "Room not found!",
+    "ROOM_FULL": "This room is unfortunately full!",
+    "ALREADY_USED_NAME": "This name is already used in the room!",
+    "ROOM_LOCKED": "Room Locked 🔒",
+    "WRONG_PASSWORD": "You entered the wrong password!",
+    "TIME_REMAINING": "Time Remaining",
+    "NEXT_QUESTION": "Next Question",
+    "CORRECT_ANSWER": "Correct Answer!",
+    "QUESTION": "Question",
+    "YOUR_SCORE": "Your Score",
+    "WAITING_TIME": "Waiting for Time to End...",
+    "FINISH_TITLE": "Quiz Finished!",
+    "FINISH_SUB": "It was a great struggle, congratulations!",
+    "POINTS": "Points",
+    "OTHER_RANKS": "Other Rankings",
+    "UNNAMED_ROOM": "Unnamed Room",
+    "SELECT_SUBJECT": "Select Subject",
+    "PASSWORD_OPTIONAL": "Password (Optional)",
+    "MAX_PLAYERS": "Max Players",
+    "QUESTION_COUNT": "Number of Questions",
+    "TIME_PER_QUESTION": "Time Per Question"
+  },
+
+  "CATEGORIES": {
+    "ALL": "Mixed / Random",
+    "GENERAL": "General Knowledge",
+    "COMPUTER": "Computer Science",
+    "SPORTS": "Sports",
+    "HISTORY": "History",
+    "GEOGRAPHY": "Geography",
+    "MYTHOLOGY": "Mythology",
+    "VIDEO_GAMES": "Video Games"
+  }
+}

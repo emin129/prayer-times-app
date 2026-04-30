@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" color="light" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="page-title">{{ 'TEFEUL_PAGE.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+  <div class="tefeul-container">
+
+    <div class="envelope-box" *ngIf="!isOpened" (click)="acTefeul()">
+      <ion-icon name="leaf-outline" class="main-icon"></ion-icon>
+      <h2>{{ 'TEFEUL_PAGE.INTENT_TITLE' | translate }}</h2>
+      <p>{{ 'TEFEUL_PAGE.INTENT_SUBTITLE' | translate }}</p>
+    </div>
+
+    <ion-card class="nasihat-card animate__animated animate__zoomIn" *ngIf="isOpened">
+      <ion-card-content>
+        <div class="quote-mark">“</div>
+        <p class="nasihat-text">{{ currentNasihat?.text | translate }}</p>
+        <h3 class="nasihat-source">— {{ currentNasihat?.source | translate }}</h3>
+
+        <div class="action-buttons">
+          <ion-button fill="clear" color="primary" (click)="paylas($event)">
+            <ion-icon name="share-social-outline" slot="start"></ion-icon>
+            {{ 'TEFEUL_PAGE.SHARE' | translate }}
+          </ion-button>
+          <ion-button fill="clear" color="medium" (click)="sifirla($event)">
+            <ion-icon name="refresh-outline" slot="start"></ion-icon>
+            {{ 'TEFEUL_PAGE.REFRESH' | translate }}
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

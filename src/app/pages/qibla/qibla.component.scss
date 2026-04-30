@@ -1,0 +1,135 @@
+.qibla-page {
+  --background: #0f172a; // Gece mavisi/Siyah geçişli zemin
+  color: white;
+
+  .main-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+  }
+
+  .header-section {
+    text-align: center;
+    .title { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; color: #f8fafc; }
+    .distance-badge {
+      background: rgba(255,255,255,0.1);
+      padding: 6px 15px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+  }
+
+  .compass-outer {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fixed-indicator {
+      position: absolute;
+      top: -10px;
+      width: 4px;
+      height: 30px;
+      background: #ef4444;
+      border-radius: 2px;
+      z-index: 100;
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    }
+
+    .compass-inner {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 8px solid #1e293b;
+      background: #0f172a;
+      position: relative;
+      transition: transform 0.2s cubic-bezier(0.1, 0.5, 0.5, 1);
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.3);
+
+      .tick {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        span {
+          display: inline-block;
+          margin-top: 15px;
+          font-size: 0.7rem;
+          color: #475569;
+          &.main-dir { color: #f8fafc; font-weight: 900; font-size: 1rem; }
+        }
+      }
+
+      .qibla-marker {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: flex;
+        justify-content: center;
+
+        .kaaba-box { font-size: 3.5rem; margin-top: 45px; z-index: 2; }
+        .kaaba-glow {
+          position: absolute;
+          top: 50px;
+          width: 60px; height: 60px;
+          background: #fbbf24;
+          filter: blur(25px);
+          opacity: 0;
+          transition: opacity 0.5s;
+          &.aligned { opacity: 0.6; background: #22c55e; }
+        }
+      }
+    }
+  }
+
+  .status-card {
+    width: 90%;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    transition: all 0.4s ease;
+
+    .degree-display {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+      .current { font-size: 2.5rem; font-weight: 800; color: #f8fafc; }
+      .target { font-size: 0.9rem; color: #64748b; }
+    }
+
+    .status-msg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      ion-icon { font-size: 1.5rem; color: #fbbf24; }
+      p { margin: 0; font-weight: 600; font-size: 1rem; }
+
+      .rotating { animation: rotate 2s linear infinite; }
+    }
+
+    .calibration-hint { font-size: 0.7rem; color: #475569; }
+
+    &.aligned {
+      border-color: #22c55e;
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.1);
+      .status-msg ion-icon { color: #22c55e; }
+    }
+  }
+}
+
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

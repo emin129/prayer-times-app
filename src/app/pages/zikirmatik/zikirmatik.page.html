@@ -1,0 +1,59 @@
+<ion-content [fullscreen]="true" class="modern-zikir">
+
+  <div class="header-glass">
+    <div class="header-content">
+      <small>{{ 'ZIKIR_PAGE.HEADER_SUB' | translate }}</small>
+      <h2>{{ aktifDua?.ad | translate }}</h2>
+    </div>
+    <ion-button fill="clear" (click)="reset()" class="reset-btn">
+      <ion-icon name="refresh-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="container">
+    <div class="dua-glass-card">
+      <p class="arabic">{{ aktifDua?.arapca }}</p>
+      <div class="info-tag">
+        <ion-icon name="sparkles-outline"></ion-icon>
+        <span>{{ aktifDua?.fazilet | translate }}</span>
+      </div>
+    </div>
+
+    <div class="zikir-selector-wrapper">
+      <div class="zikir-chips">
+        <div class="chip-item add-btn" (click)="zikirEkleModal()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <span>Ekle</span>
+        </div>
+
+        <div class="chip-item"
+             *ngFor="let z of zikirListesi"
+             (click)="selectZikir(z)"
+             [class.active]="seciliZikir?.id === z.id">
+          <span class="chip-text">{{ z.isCustom ? z.ad : (z.ad | translate) }}</span>
+          <ion-icon name="close-circle" class="delete-icon" *ngIf="z.isCustom" (click)="zikirSil($event, z)"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="counter-engine">
+      <div class="zikir-description">
+        <h3>{{ seciliZikir?.isCustom ? seciliZikir.ad : (seciliZikir?.ad | translate) }}</h3>
+      </div>
+
+      <div class="neu-button-outer" (click)="increment()">
+        <div class="neu-button-inner">
+          <div class="count-display">
+            <span class="big-num">{{ count }}</span>
+            <span class="target-num">/ {{ seciliZikir?.hedef }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reset-action" (click)="reset()">
+        <ion-icon name="reload-circle-outline"></ion-icon>
+        <span>SAYACI SIFIRLA</span>
+      </div>
+    </div>
+  </div>
+</ion-content>
