@@ -7,7 +7,7 @@ export class GeminiService {
   private http = inject(HttpClient);
 
   // ✅ Senin curl komutundaki url ve key
-  private apiKey: string = 'AIzaSyDoI7Nxl5hy3ZipPjG3Q58tciddieNNmSk';
+  private apiKey: string = 'mehmetemin';
   private baseUrl: string = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent';
 
   async interpretDream(dreamDescription: string) {
